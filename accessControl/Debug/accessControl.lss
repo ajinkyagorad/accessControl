@@ -1,0 +1,455 @@
+
+accessControl.elf:     file format elf32-avr
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn
+  0 .text         00000222  00000000  00000000  00000094  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  1 .data         00000000  00800060  00000222  000002b6  2**0
+                  CONTENTS, ALLOC, LOAD, DATA
+  2 .bss          00000045  00800060  00800060  000002b6  2**0
+                  ALLOC
+  3 .comment      00000030  00000000  00000000  000002b6  2**0
+                  CONTENTS, READONLY
+  4 .debug_aranges 00000080  00000000  00000000  000002e6  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  5 .debug_info   0000041c  00000000  00000000  00000366  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  6 .debug_abbrev 000001f4  00000000  00000000  00000782  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  7 .debug_line   000001b7  00000000  00000000  00000976  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  8 .debug_frame  00000124  00000000  00000000  00000b30  2**2
+                  CONTENTS, READONLY, DEBUGGING
+  9 .debug_str    0000030b  00000000  00000000  00000c54  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 10 .debug_loc    00000313  00000000  00000000  00000f5f  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 11 .debug_ranges 00000078  00000000  00000000  00001272  2**0
+                  CONTENTS, READONLY, DEBUGGING
+
+Disassembly of section .text:
+
+00000000 <__vectors>:
+   0:	0c 94 2a 00 	jmp	0x54	; 0x54 <__ctors_end>
+   4:	0c 94 3c 00 	jmp	0x78	; 0x78 <__bad_interrupt>
+   8:	0c 94 3c 00 	jmp	0x78	; 0x78 <__bad_interrupt>
+   c:	0c 94 3c 00 	jmp	0x78	; 0x78 <__bad_interrupt>
+  10:	0c 94 3c 00 	jmp	0x78	; 0x78 <__bad_interrupt>
+  14:	0c 94 3c 00 	jmp	0x78	; 0x78 <__bad_interrupt>
+  18:	0c 94 3c 00 	jmp	0x78	; 0x78 <__bad_interrupt>
+  1c:	0c 94 3c 00 	jmp	0x78	; 0x78 <__bad_interrupt>
+  20:	0c 94 3c 00 	jmp	0x78	; 0x78 <__bad_interrupt>
+  24:	0c 94 3c 00 	jmp	0x78	; 0x78 <__bad_interrupt>
+  28:	0c 94 3c 00 	jmp	0x78	; 0x78 <__bad_interrupt>
+  2c:	0c 94 3c 00 	jmp	0x78	; 0x78 <__bad_interrupt>
+  30:	0c 94 3c 00 	jmp	0x78	; 0x78 <__bad_interrupt>
+  34:	0c 94 4c 00 	jmp	0x98	; 0x98 <__vector_13>
+  38:	0c 94 75 00 	jmp	0xea	; 0xea <__vector_14>
+  3c:	0c 94 3c 00 	jmp	0x78	; 0x78 <__bad_interrupt>
+  40:	0c 94 3c 00 	jmp	0x78	; 0x78 <__bad_interrupt>
+  44:	0c 94 3c 00 	jmp	0x78	; 0x78 <__bad_interrupt>
+  48:	0c 94 3c 00 	jmp	0x78	; 0x78 <__bad_interrupt>
+  4c:	0c 94 3c 00 	jmp	0x78	; 0x78 <__bad_interrupt>
+  50:	0c 94 3c 00 	jmp	0x78	; 0x78 <__bad_interrupt>
+
+00000054 <__ctors_end>:
+  54:	11 24       	eor	r1, r1
+  56:	1f be       	out	0x3f, r1	; 63
+  58:	cf e5       	ldi	r28, 0x5F	; 95
+  5a:	d8 e0       	ldi	r29, 0x08	; 8
+  5c:	de bf       	out	0x3e, r29	; 62
+  5e:	cd bf       	out	0x3d, r28	; 61
+
+00000060 <__do_clear_bss>:
+  60:	20 e0       	ldi	r18, 0x00	; 0
+  62:	a0 e6       	ldi	r26, 0x60	; 96
+  64:	b0 e0       	ldi	r27, 0x00	; 0
+  66:	01 c0       	rjmp	.+2      	; 0x6a <.do_clear_bss_start>
+
+00000068 <.do_clear_bss_loop>:
+  68:	1d 92       	st	X+, r1
+
+0000006a <.do_clear_bss_start>:
+  6a:	a5 3a       	cpi	r26, 0xA5	; 165
+  6c:	b2 07       	cpc	r27, r18
+  6e:	e1 f7       	brne	.-8      	; 0x68 <.do_clear_bss_loop>
+  70:	0e 94 3e 00 	call	0x7c	; 0x7c <main>
+  74:	0c 94 0f 01 	jmp	0x21e	; 0x21e <_exit>
+
+00000078 <__bad_interrupt>:
+  78:	0c 94 00 00 	jmp	0	; 0x0 <__vectors>
+
+0000007c <main>:
+	#include "uart.h"
+}
+
+int main(void)
+{
+	uart_init(UART_BAUD_SELECT(9600,F_CPU));
+  7c:	83 e3       	ldi	r24, 0x33	; 51
+  7e:	90 e0       	ldi	r25, 0x00	; 0
+  80:	0e 94 9a 00 	call	0x134	; 0x134 <uart_init>
+	sei();
+  84:	78 94       	sei
+    while(1)
+    {
+		if(uart_available())
+  86:	0e 94 da 00 	call	0x1b4	; 0x1b4 <uart_available>
+  8a:	89 2b       	or	r24, r25
+  8c:	e1 f3       	breq	.-8      	; 0x86 <main+0xa>
+		{
+			uart_putc(uart_getc());
+  8e:	0e 94 ae 00 	call	0x15c	; 0x15c <uart_getc>
+  92:	0e 94 c9 00 	call	0x192	; 0x192 <uart_putc>
+  96:	f7 cf       	rjmp	.-18     	; 0x86 <main+0xa>
+
+00000098 <__vector_13>:
+ISR(UART0_RECEIVE_INTERRUPT)
+/*************************************************************************
+Function: UART Receive Complete interrupt
+Purpose:  called when the UART has received a character
+**************************************************************************/
+{
+  98:	1f 92       	push	r1
+  9a:	0f 92       	push	r0
+  9c:	0f b6       	in	r0, 0x3f	; 63
+  9e:	0f 92       	push	r0
+  a0:	11 24       	eor	r1, r1
+  a2:	2f 93       	push	r18
+  a4:	8f 93       	push	r24
+  a6:	9f 93       	push	r25
+  a8:	ef 93       	push	r30
+  aa:	ff 93       	push	r31
+    unsigned char usr;
+    unsigned char lastRxError;
+ 
+ 
+    /* read UART status register and UART data register */ 
+    usr  = UART0_STATUS;
+  ac:	8b b1       	in	r24, 0x0b	; 11
+    data = UART0_DATA;
+  ae:	2c b1       	in	r18, 0x0c	; 12
+    
+    /* */
+#if defined( AT90_UART )
+    lastRxError = (usr & (_BV(FE)|_BV(DOR)) );
+#elif defined( ATMEGA_USART )
+    lastRxError = (usr & (_BV(FE)|_BV(DOR)) );
+  b0:	88 71       	andi	r24, 0x18	; 24
+#elif defined ( ATMEGA_UART )
+    lastRxError = (usr & (_BV(FE)|_BV(DOR)) );
+#endif
+        
+    /* calculate buffer index */ 
+    tmphead = ( UART_RxHead + 1) & UART_RX_BUFFER_MASK;
+  b2:	e0 91 62 00 	lds	r30, 0x0062
+  b6:	ef 5f       	subi	r30, 0xFF	; 255
+  b8:	ef 71       	andi	r30, 0x1F	; 31
+    
+    if ( tmphead == UART_RxTail ) {
+  ba:	90 91 61 00 	lds	r25, 0x0061
+  be:	e9 17       	cp	r30, r25
+  c0:	39 f0       	breq	.+14     	; 0xd0 <__vector_13+0x38>
+        /* error: receive buffer overflow */
+        lastRxError = UART_BUFFER_OVERFLOW >> 8;
+    }else{
+        /* store new index */
+        UART_RxHead = tmphead;
+  c2:	e0 93 62 00 	sts	0x0062, r30
+        /* store received data in buffer */
+        UART_RxBuf[tmphead] = data;
+  c6:	f0 e0       	ldi	r31, 0x00	; 0
+  c8:	eb 59       	subi	r30, 0x9B	; 155
+  ca:	ff 4f       	sbci	r31, 0xFF	; 255
+  cc:	20 83       	st	Z, r18
+  ce:	01 c0       	rjmp	.+2      	; 0xd2 <__vector_13+0x3a>
+    /* calculate buffer index */ 
+    tmphead = ( UART_RxHead + 1) & UART_RX_BUFFER_MASK;
+    
+    if ( tmphead == UART_RxTail ) {
+        /* error: receive buffer overflow */
+        lastRxError = UART_BUFFER_OVERFLOW >> 8;
+  d0:	82 e0       	ldi	r24, 0x02	; 2
+        /* store new index */
+        UART_RxHead = tmphead;
+        /* store received data in buffer */
+        UART_RxBuf[tmphead] = data;
+    }
+    UART_LastRxError = lastRxError;   
+  d2:	80 93 60 00 	sts	0x0060, r24
+}
+  d6:	ff 91       	pop	r31
+  d8:	ef 91       	pop	r30
+  da:	9f 91       	pop	r25
+  dc:	8f 91       	pop	r24
+  de:	2f 91       	pop	r18
+  e0:	0f 90       	pop	r0
+  e2:	0f be       	out	0x3f, r0	; 63
+  e4:	0f 90       	pop	r0
+  e6:	1f 90       	pop	r1
+  e8:	18 95       	reti
+
+000000ea <__vector_14>:
+ISR(UART0_TRANSMIT_INTERRUPT)
+/*************************************************************************
+Function: UART Data Register Empty interrupt
+Purpose:  called when the UART is ready to transmit the next byte
+**************************************************************************/
+{
+  ea:	1f 92       	push	r1
+  ec:	0f 92       	push	r0
+  ee:	0f b6       	in	r0, 0x3f	; 63
+  f0:	0f 92       	push	r0
+  f2:	11 24       	eor	r1, r1
+  f4:	8f 93       	push	r24
+  f6:	9f 93       	push	r25
+  f8:	ef 93       	push	r30
+  fa:	ff 93       	push	r31
+    unsigned char tmptail;
+
+    
+    if ( UART_TxHead != UART_TxTail) {
+  fc:	90 91 64 00 	lds	r25, 0x0064
+ 100:	80 91 63 00 	lds	r24, 0x0063
+ 104:	98 17       	cp	r25, r24
+ 106:	61 f0       	breq	.+24     	; 0x120 <__vector_14+0x36>
+        /* calculate and store new buffer index */
+        tmptail = (UART_TxTail + 1) & UART_TX_BUFFER_MASK;
+ 108:	e0 91 63 00 	lds	r30, 0x0063
+ 10c:	ef 5f       	subi	r30, 0xFF	; 255
+ 10e:	ef 71       	andi	r30, 0x1F	; 31
+        UART_TxTail = tmptail;
+ 110:	e0 93 63 00 	sts	0x0063, r30
+        /* get one byte from buffer and write it to UART */
+        UART0_DATA = UART_TxBuf[tmptail];  /* start transmission */
+ 114:	f0 e0       	ldi	r31, 0x00	; 0
+ 116:	eb 57       	subi	r30, 0x7B	; 123
+ 118:	ff 4f       	sbci	r31, 0xFF	; 255
+ 11a:	80 81       	ld	r24, Z
+ 11c:	8c b9       	out	0x0c, r24	; 12
+ 11e:	01 c0       	rjmp	.+2      	; 0x122 <__vector_14+0x38>
+    }else{
+        /* tx buffer empty, disable UDRE interrupt */
+        UART0_CONTROL &= ~_BV(UART0_UDRIE);
+ 120:	55 98       	cbi	0x0a, 5	; 10
+    }
+}
+ 122:	ff 91       	pop	r31
+ 124:	ef 91       	pop	r30
+ 126:	9f 91       	pop	r25
+ 128:	8f 91       	pop	r24
+ 12a:	0f 90       	pop	r0
+ 12c:	0f be       	out	0x3f, r0	; 63
+ 12e:	0f 90       	pop	r0
+ 130:	1f 90       	pop	r1
+ 132:	18 95       	reti
+
+00000134 <uart_init>:
+Input:    baudrate using macro UART_BAUD_SELECT()
+Returns:  none
+**************************************************************************/
+void uart_init(unsigned int baudrate)
+{
+    UART_TxHead = 0;
+ 134:	10 92 64 00 	sts	0x0064, r1
+    UART_TxTail = 0;
+ 138:	10 92 63 00 	sts	0x0063, r1
+    UART_RxHead = 0;
+ 13c:	10 92 62 00 	sts	0x0062, r1
+    UART_RxTail = 0;
+ 140:	10 92 61 00 	sts	0x0061, r1
+    /* enable UART receiver and transmmitter and receive complete interrupt */
+    UART0_CONTROL = _BV(RXCIE)|_BV(RXEN)|_BV(TXEN);
+
+#elif defined (ATMEGA_USART)
+    /* Set baud rate */
+    if ( baudrate & 0x8000 )
+ 144:	99 23       	and	r25, r25
+ 146:	1c f4       	brge	.+6      	; 0x14e <uart_init+0x1a>
+    {
+    	 UART0_STATUS = (1<<U2X);  //Enable 2x speed 
+ 148:	22 e0       	ldi	r18, 0x02	; 2
+ 14a:	2b b9       	out	0x0b, r18	; 11
+    	 baudrate &= ~0x8000;
+ 14c:	9f 77       	andi	r25, 0x7F	; 127
+    }
+    UBRRH = (unsigned char)(baudrate>>8);
+ 14e:	90 bd       	out	0x20, r25	; 32
+    UBRRL = (unsigned char) baudrate;
+ 150:	89 b9       	out	0x09, r24	; 9
+   
+    /* Enable USART receiver and transmitter and receive complete interrupt */
+    UART0_CONTROL = _BV(RXCIE)|(1<<RXEN)|(1<<TXEN);
+ 152:	88 e9       	ldi	r24, 0x98	; 152
+ 154:	8a b9       	out	0x0a, r24	; 10
+    
+    /* Set frame format: asynchronous, 8data, no parity, 1stop bit */
+    #ifdef URSEL
+    UCSRC = (1<<URSEL)|(3<<UCSZ0);
+ 156:	86 e8       	ldi	r24, 0x86	; 134
+ 158:	80 bd       	out	0x20, r24	; 32
+ 15a:	08 95       	ret
+
+0000015c <uart_getc>:
+{    
+    unsigned char tmptail;
+    unsigned char data;
+
+
+    if ( UART_RxHead == UART_RxTail ) {
+ 15c:	90 91 62 00 	lds	r25, 0x0062
+ 160:	80 91 61 00 	lds	r24, 0x0061
+ 164:	98 17       	cp	r25, r24
+ 166:	91 f0       	breq	.+36     	; 0x18c <uart_getc+0x30>
+        return UART_NO_DATA;   /* no data available */
+    }
+    
+    /* calculate /store buffer index */
+    tmptail = (UART_RxTail + 1) & UART_RX_BUFFER_MASK;
+ 168:	e0 91 61 00 	lds	r30, 0x0061
+ 16c:	ef 5f       	subi	r30, 0xFF	; 255
+ 16e:	ef 71       	andi	r30, 0x1F	; 31
+    UART_RxTail = tmptail; 
+ 170:	e0 93 61 00 	sts	0x0061, r30
+    
+    /* get data from receive buffer */
+    data = UART_RxBuf[tmptail];
+ 174:	f0 e0       	ldi	r31, 0x00	; 0
+ 176:	eb 59       	subi	r30, 0x9B	; 155
+ 178:	ff 4f       	sbci	r31, 0xFF	; 255
+ 17a:	20 81       	ld	r18, Z
+    
+    return (UART_LastRxError << 8) + data;
+ 17c:	80 91 60 00 	lds	r24, 0x0060
+ 180:	90 e0       	ldi	r25, 0x00	; 0
+ 182:	98 2f       	mov	r25, r24
+ 184:	88 27       	eor	r24, r24
+ 186:	82 0f       	add	r24, r18
+ 188:	91 1d       	adc	r25, r1
+ 18a:	08 95       	ret
+    unsigned char tmptail;
+    unsigned char data;
+
+
+    if ( UART_RxHead == UART_RxTail ) {
+        return UART_NO_DATA;   /* no data available */
+ 18c:	80 e0       	ldi	r24, 0x00	; 0
+ 18e:	91 e0       	ldi	r25, 0x01	; 1
+    /* get data from receive buffer */
+    data = UART_RxBuf[tmptail];
+    
+    return (UART_LastRxError << 8) + data;
+
+}/* uart_getc */
+ 190:	08 95       	ret
+
+00000192 <uart_putc>:
+void uart_putc(unsigned char data)
+{
+    unsigned char tmphead;
+
+    
+    tmphead  = (UART_TxHead + 1) & UART_TX_BUFFER_MASK;
+ 192:	20 91 64 00 	lds	r18, 0x0064
+ 196:	2f 5f       	subi	r18, 0xFF	; 255
+ 198:	2f 71       	andi	r18, 0x1F	; 31
+    
+    while ( tmphead == UART_TxTail ){
+ 19a:	90 91 63 00 	lds	r25, 0x0063
+ 19e:	29 17       	cp	r18, r25
+ 1a0:	e1 f3       	breq	.-8      	; 0x19a <uart_putc+0x8>
+        ;/* wait for free space in buffer */
+    }
+    
+    UART_TxBuf[tmphead] = data;
+ 1a2:	e2 2f       	mov	r30, r18
+ 1a4:	f0 e0       	ldi	r31, 0x00	; 0
+ 1a6:	eb 57       	subi	r30, 0x7B	; 123
+ 1a8:	ff 4f       	sbci	r31, 0xFF	; 255
+ 1aa:	80 83       	st	Z, r24
+    UART_TxHead = tmphead;
+ 1ac:	20 93 64 00 	sts	0x0064, r18
+
+    /* enable UDRE interrupt */
+    UART0_CONTROL    |= _BV(UART0_UDRIE);
+ 1b0:	55 9a       	sbi	0x0a, 5	; 10
+ 1b2:	08 95       	ret
+
+000001b4 <uart_available>:
+Input:    None
+Returns:  Integer number of bytes in the receive buffer
+**************************************************************************/
+int uart_available(void)
+{
+        return (UART_RX_BUFFER_MASK + UART_RxHead - UART_RxTail) % UART_RX_BUFFER_MASK;
+ 1b4:	80 91 62 00 	lds	r24, 0x0062
+ 1b8:	20 91 61 00 	lds	r18, 0x0061
+ 1bc:	90 e0       	ldi	r25, 0x00	; 0
+ 1be:	4f 96       	adiw	r24, 0x1f	; 31
+ 1c0:	82 1b       	sub	r24, r18
+ 1c2:	91 09       	sbc	r25, r1
+ 1c4:	6f e1       	ldi	r22, 0x1F	; 31
+ 1c6:	70 e0       	ldi	r23, 0x00	; 0
+ 1c8:	0e 94 e7 00 	call	0x1ce	; 0x1ce <__divmodhi4>
+}/* uart_available */
+ 1cc:	08 95       	ret
+
+000001ce <__divmodhi4>:
+ 1ce:	97 fb       	bst	r25, 7
+ 1d0:	07 2e       	mov	r0, r23
+ 1d2:	16 f4       	brtc	.+4      	; 0x1d8 <__divmodhi4+0xa>
+ 1d4:	00 94       	com	r0
+ 1d6:	07 d0       	rcall	.+14     	; 0x1e6 <__divmodhi4_neg1>
+ 1d8:	77 fd       	sbrc	r23, 7
+ 1da:	09 d0       	rcall	.+18     	; 0x1ee <__divmodhi4_neg2>
+ 1dc:	0e 94 fb 00 	call	0x1f6	; 0x1f6 <__udivmodhi4>
+ 1e0:	07 fc       	sbrc	r0, 7
+ 1e2:	05 d0       	rcall	.+10     	; 0x1ee <__divmodhi4_neg2>
+ 1e4:	3e f4       	brtc	.+14     	; 0x1f4 <__divmodhi4_exit>
+
+000001e6 <__divmodhi4_neg1>:
+ 1e6:	90 95       	com	r25
+ 1e8:	81 95       	neg	r24
+ 1ea:	9f 4f       	sbci	r25, 0xFF	; 255
+ 1ec:	08 95       	ret
+
+000001ee <__divmodhi4_neg2>:
+ 1ee:	70 95       	com	r23
+ 1f0:	61 95       	neg	r22
+ 1f2:	7f 4f       	sbci	r23, 0xFF	; 255
+
+000001f4 <__divmodhi4_exit>:
+ 1f4:	08 95       	ret
+
+000001f6 <__udivmodhi4>:
+ 1f6:	aa 1b       	sub	r26, r26
+ 1f8:	bb 1b       	sub	r27, r27
+ 1fa:	51 e1       	ldi	r21, 0x11	; 17
+ 1fc:	07 c0       	rjmp	.+14     	; 0x20c <__udivmodhi4_ep>
+
+000001fe <__udivmodhi4_loop>:
+ 1fe:	aa 1f       	adc	r26, r26
+ 200:	bb 1f       	adc	r27, r27
+ 202:	a6 17       	cp	r26, r22
+ 204:	b7 07       	cpc	r27, r23
+ 206:	10 f0       	brcs	.+4      	; 0x20c <__udivmodhi4_ep>
+ 208:	a6 1b       	sub	r26, r22
+ 20a:	b7 0b       	sbc	r27, r23
+
+0000020c <__udivmodhi4_ep>:
+ 20c:	88 1f       	adc	r24, r24
+ 20e:	99 1f       	adc	r25, r25
+ 210:	5a 95       	dec	r21
+ 212:	a9 f7       	brne	.-22     	; 0x1fe <__udivmodhi4_loop>
+ 214:	80 95       	com	r24
+ 216:	90 95       	com	r25
+ 218:	bc 01       	movw	r22, r24
+ 21a:	cd 01       	movw	r24, r26
+ 21c:	08 95       	ret
+
+0000021e <_exit>:
+ 21e:	f8 94       	cli
+
+00000220 <__stop_program>:
+ 220:	ff cf       	rjmp	.-2      	; 0x220 <__stop_program>
