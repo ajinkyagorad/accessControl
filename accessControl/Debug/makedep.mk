@@ -4,5 +4,11 @@
 
 accessControl.cpp
 
+spi.c
+
+systime.cpp
+
 uart.c
+
+w5100.cpp
 

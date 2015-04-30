@@ -37,7 +37,10 @@ SUBDIRS :=
 # Add inputs and outputs from these tool invocations to the build variables 
 C_SRCS +=  \
 ../accessControl.cpp \
-../uart.c
+../spi.c \
+../systime.cpp \
+../uart.c \
+../w5100.cpp
 
 
 PREPROCESSING_SRCS += 
@@ -48,19 +51,31 @@ ASM_SRCS +=
 
 OBJS +=  \
 accessControl.o \
-uart.o
+spi.o \
+systime.o \
+uart.o \
+w5100.o
 
 OBJS_AS_ARGS +=  \
 accessControl.o \
-uart.o
+spi.o \
+systime.o \
+uart.o \
+w5100.o
 
 C_DEPS +=  \
 accessControl.d \
-uart.d
+spi.d \
+systime.d \
+uart.d \
+w5100.d
 
 C_DEPS_AS_ARGS +=  \
 accessControl.d \
-uart.d
+spi.d \
+systime.d \
+uart.d \
+w5100.d
 
 OUTPUT_FILE_PATH +=accessControl.elf
 
@@ -73,6 +88,12 @@ OUTPUT_FILE_DEP:= ./makedep.mk
 LIB_DEP+= 
 
 # AVR32/GNU C Compiler
+
+
+
+
+
+
 
 
 
