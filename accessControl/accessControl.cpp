@@ -9,22 +9,19 @@
 #include "include.h"
 #include "systime.h"
 
-extern "C"			//program in C language to maintain compatibility	//otherwise will give undefined reference
-{
-	
-	
+extern "C"	{		//program in C language to maintain compatibility	//otherwise will give undefined reference
 	#include "spi.h"
 	#include "uart.h"
-	
-}
+	}
+#include "w5100.h"
 
 //Assign I/O stream to UART
 
 
 #define NULL  0
-char* getRFID(void)
+bool getRFID(char* id)
 {
-	char id[12];
+	
 	unsigned char index=0;
 	long time=systime::getSysTime();
 	//for checking that input arrives in specific time
@@ -36,8 +33,8 @@ char* getRFID(void)
 			index++;
 		}
 	}
-	if(index==12)return id;
-	else return NULL;
+	if(index==12)return true;
+	else return false;
 }
 int main(void)
 {
@@ -50,12 +47,7 @@ int main(void)
     while(1)
     {
 		
-		id=getRFID();
-		if(id==NULL)
-		{
-			//uart_puts_P("Error Reading RFID\n\r");
-		}
-		else
+		if(getRFID(id))
 		{
 			for(int i=0;i<12;i++)uart_putc(id[i]);
 			//uart_puts_p("\n\r");

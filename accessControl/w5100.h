@@ -4,13 +4,16 @@
  * Created: 01-05-2015 03:33:04 AM
  *  Author: Ajinkya
  */ 
-
+//source: http://www.ermicro.com/blog/?p=1773
 
 #ifndef W5100_H_
 #define W5100_H_
 
 #include "include.h"
-#include "spi.h"
+extern "C"
+{
+	#include "spi.h"
+}
 // Wiznet W5100 Op Code
 #define WIZNET_WRITE_OPCODE 0XF0
 #define WIZNET_READ_OPCODE	0X0F
@@ -88,19 +91,25 @@
 class w5100{
 	// Define W5100 Socket Register and Variables Used
 	uint8_t sockreg;
+	private:
+		void SPI_Write(unsigned int addr, unsigned char data);
+		unsigned char SPI_Read(unsigned int addr);
+		
 	public:
 		w5100();
 		void init(void);
-		void SPI_Write(unsigned int addr, unsigned char data);
-		unsigned char SPI_Read(unsigned int addr);
-		void close(unsigned char sock);
-		void disconnect(unsigned char sock);
-		unsigned char socket(unsigned char sock, unsigned char eth_protocol, unsigned int tcp_port);
-		unsigned char listen(unsigned char sock);
+	
+			
+		
+		
+		
+		unsigned char socket(unsigned char sock, unsigned char eth_protocol, unsigned int tcp_port);//opens a socket
+		unsigned char listen(unsigned char sock);			//listen for a connection from a client or server
+		void disconnect(unsigned char sock);				//disconnect a connection from a client or server
+		void close(unsigned char sock);	//closes a socket
 		unsigned int send(unsigned char sock , const unsigned char * buf, unsigned int buflen);
 		unsigned int recv(unsigned char sock,unsigned char * buf, unsigned int buflen);
 		unsigned int recv_size(void);
-		
 	};
 
 
