@@ -3,1048 +3,1697 @@ accessControl.elf:     file format elf32-avr
 
 Sections:
 Idx Name          Size      VMA       LMA       File off  Algn
-  0 .text         000005a4  00000000  00000000  00000094  2**1
+  0 .text         000008f8  00000000  00000000  00000094  2**1
                   CONTENTS, ALLOC, LOAD, READONLY, CODE
-  1 .data         00000000  00800060  000005a4  00000638  2**0
+  1 .data         00000006  00800060  000008f8  0000098c  2**0
                   CONTENTS, ALLOC, LOAD, DATA
-  2 .bss          00000049  00800060  00800060  00000638  2**0
+  2 .bss          00000249  00800066  00800066  00000992  2**0
                   ALLOC
-  3 .comment      00000030  00000000  00000000  00000638  2**0
+  3 .comment      00000030  00000000  00000000  00000992  2**0
                   CONTENTS, READONLY
-  4 .debug_aranges 00000180  00000000  00000000  00000668  2**0
+  4 .debug_aranges 00000198  00000000  00000000  000009c2  2**0
                   CONTENTS, READONLY, DEBUGGING
-  5 .debug_info   000018f2  00000000  00000000  000007e8  2**0
+  5 .debug_info   00001ee4  00000000  00000000  00000b5a  2**0
                   CONTENTS, READONLY, DEBUGGING
-  6 .debug_abbrev 00000774  00000000  00000000  000020da  2**0
+  6 .debug_abbrev 0000095e  00000000  00000000  00002a3e  2**0
                   CONTENTS, READONLY, DEBUGGING
-  7 .debug_line   0000066d  00000000  00000000  0000284e  2**0
+  7 .debug_line   00000838  00000000  00000000  0000339c  2**0
                   CONTENTS, READONLY, DEBUGGING
-  8 .debug_frame  00000400  00000000  00000000  00002ebc  2**2
+  8 .debug_frame  00000458  00000000  00000000  00003bd4  2**2
                   CONTENTS, READONLY, DEBUGGING
-  9 .debug_str    0000068c  00000000  00000000  000032bc  2**0
+  9 .debug_str    000006fa  00000000  00000000  0000402c  2**0
                   CONTENTS, READONLY, DEBUGGING
- 10 .debug_loc    000010d3  00000000  00000000  00003948  2**0
+ 10 .debug_loc    00001315  00000000  00000000  00004726  2**0
                   CONTENTS, READONLY, DEBUGGING
- 11 .debug_ranges 00000160  00000000  00000000  00004a1b  2**0
+ 11 .debug_ranges 00000178  00000000  00000000  00005a3b  2**0
                   CONTENTS, READONLY, DEBUGGING
 
 Disassembly of section .text:
 
 00000000 <__vectors>:
-	 }
-	 return retval;
+   0:	0c 94 5d 00 	jmp	0xba	; 0xba <__ctors_end>
+   4:	0c 94 7a 00 	jmp	0xf4	; 0xf4 <__bad_interrupt>
+   8:	0c 94 7a 00 	jmp	0xf4	; 0xf4 <__bad_interrupt>
+   c:	0c 94 7a 00 	jmp	0xf4	; 0xf4 <__bad_interrupt>
+  10:	0c 94 7a 00 	jmp	0xf4	; 0xf4 <__bad_interrupt>
+  14:	0c 94 7a 00 	jmp	0xf4	; 0xf4 <__bad_interrupt>
+  18:	0c 94 7a 00 	jmp	0xf4	; 0xf4 <__bad_interrupt>
+  1c:	0c 94 7a 00 	jmp	0xf4	; 0xf4 <__bad_interrupt>
+  20:	0c 94 7a 00 	jmp	0xf4	; 0xf4 <__bad_interrupt>
+  24:	0c 94 17 01 	jmp	0x22e	; 0x22e <__vector_9>
+  28:	0c 94 7a 00 	jmp	0xf4	; 0xf4 <__bad_interrupt>
+  2c:	0c 94 7a 00 	jmp	0xf4	; 0xf4 <__bad_interrupt>
+  30:	0c 94 7a 00 	jmp	0xf4	; 0xf4 <__bad_interrupt>
+  34:	0c 94 4e 01 	jmp	0x29c	; 0x29c <__vector_13>
+  38:	0c 94 77 01 	jmp	0x2ee	; 0x2ee <__vector_14>
+  3c:	0c 94 7a 00 	jmp	0xf4	; 0xf4 <__bad_interrupt>
+  40:	0c 94 7a 00 	jmp	0xf4	; 0xf4 <__bad_interrupt>
+  44:	0c 94 7a 00 	jmp	0xf4	; 0xf4 <__bad_interrupt>
+  48:	0c 94 7a 00 	jmp	0xf4	; 0xf4 <__bad_interrupt>
+  4c:	0c 94 7a 00 	jmp	0xf4	; 0xf4 <__bad_interrupt>
+  50:	0c 94 7a 00 	jmp	0xf4	; 0xf4 <__bad_interrupt>
+
+00000054 <__trampolines_end>:
+  54:	3c 68       	ori	r19, 0x8C	; 140
+  56:	31 3e       	cpi	r19, 0xE1	; 225
+  58:	52 46       	sbci	r21, 0x62	; 98
+  5a:	49 44       	sbci	r20, 0x49	; 73
+  5c:	3c 2f       	mov	r19, r28
+  5e:	68 31       	cpi	r22, 0x18	; 24
+  60:	3e 0d       	add	r19, r14
+  62:	0a 00       	.word	0x000a	; ????
+
+00000064 <_ZZ4mainE3__c_0>:
+  64:	3c 68 74 6d 6c 3e 3c 62 6f 64 79 3e 3c 73 70 61     <html><body><spa
+  74:	6e 20 73 74 79 6c 65 3d 22 63 6f 6c 6f 72 3a 23     n style="color:#
+  84:	30 30 30 30 41 30 22 3e 0d 0a 00                    0000A0">...
+
+0000008f <_ZZ4mainE3__c>:
+  8f:	48 54 54 50 2f 31 2e 30 20 32 30 30 20 4f 4b 0d     HTTP/1.0 200 OK.
+  9f:	0a 43 6f 6e 74 65 6e 74 2d 54 79 70 65 3a 20 74     .Content-Type: t
+  af:	65 78 74 2f 68 74 6d 6c 0d 0a 00                    ext/html...
+
+000000ba <__ctors_end>:
+  ba:	11 24       	eor	r1, r1
+  bc:	1f be       	out	0x3f, r1	; 63
+  be:	cf e5       	ldi	r28, 0x5F	; 95
+  c0:	d8 e0       	ldi	r29, 0x08	; 8
+  c2:	de bf       	out	0x3e, r29	; 62
+  c4:	cd bf       	out	0x3d, r28	; 61
+
+000000c6 <__do_copy_data>:
+  c6:	10 e0       	ldi	r17, 0x00	; 0
+  c8:	a0 e6       	ldi	r26, 0x60	; 96
+  ca:	b0 e0       	ldi	r27, 0x00	; 0
+  cc:	e8 ef       	ldi	r30, 0xF8	; 248
+  ce:	f8 e0       	ldi	r31, 0x08	; 8
+  d0:	02 c0       	rjmp	.+4      	; 0xd6 <__do_copy_data+0x10>
+  d2:	05 90       	lpm	r0, Z+
+  d4:	0d 92       	st	X+, r0
+  d6:	a6 36       	cpi	r26, 0x66	; 102
+  d8:	b1 07       	cpc	r27, r17
+  da:	d9 f7       	brne	.-10     	; 0xd2 <__do_copy_data+0xc>
+
+000000dc <__do_clear_bss>:
+  dc:	22 e0       	ldi	r18, 0x02	; 2
+  de:	a6 e6       	ldi	r26, 0x66	; 102
+  e0:	b0 e0       	ldi	r27, 0x00	; 0
+  e2:	01 c0       	rjmp	.+2      	; 0xe6 <.do_clear_bss_start>
+
+000000e4 <.do_clear_bss_loop>:
+  e4:	1d 92       	st	X+, r1
+
+000000e6 <.do_clear_bss_start>:
+  e6:	af 3a       	cpi	r26, 0xAF	; 175
+  e8:	b2 07       	cpc	r27, r18
+  ea:	e1 f7       	brne	.-8      	; 0xe4 <.do_clear_bss_loop>
+  ec:	0e 94 8b 00 	call	0x116	; 0x116 <main>
+  f0:	0c 94 7a 04 	jmp	0x8f4	; 0x8f4 <_exit>
+
+000000f4 <__bad_interrupt>:
+  f4:	0c 94 00 00 	jmp	0	; 0x0 <__vectors>
+
+000000f8 <_Z6strlenPc>:
+	else return false;
 }
-
-unsigned int w5100::send(unsigned char sock , const unsigned char * buf, unsigned int buflen)
+int strlen( char * str)
 {
-   0:	0c 94 2a 00 	jmp	0x54	; 0x54 <__ctors_end>
-   4:	0c 94 3c 00 	jmp	0x78	; 0x78 <__bad_interrupt>
-   8:	0c 94 3c 00 	jmp	0x78	; 0x78 <__bad_interrupt>
-   c:	0c 94 3c 00 	jmp	0x78	; 0x78 <__bad_interrupt>
-  10:	0c 94 3c 00 	jmp	0x78	; 0x78 <__bad_interrupt>
-  14:	0c 94 3c 00 	jmp	0x78	; 0x78 <__bad_interrupt>
-  18:	0c 94 3c 00 	jmp	0x78	; 0x78 <__bad_interrupt>
-  1c:	0c 94 3c 00 	jmp	0x78	; 0x78 <__bad_interrupt>
-	uint16_t ptr,offaddr,realaddr,txsize,timeout;
+	int i;
+	for( i=0;str[i]!=0;i++);
+  f8:	fc 01       	movw	r30, r24
+  fa:	20 81       	ld	r18, Z
+  fc:	22 23       	and	r18, r18
+  fe:	41 f0       	breq	.+16     	; 0x110 <_Z6strlenPc+0x18>
+ 100:	31 96       	adiw	r30, 0x01	; 1
+ 102:	80 e0       	ldi	r24, 0x00	; 0
+ 104:	90 e0       	ldi	r25, 0x00	; 0
+ 106:	01 96       	adiw	r24, 0x01	; 1
+ 108:	21 91       	ld	r18, Z+
+ 10a:	21 11       	cpse	r18, r1
+ 10c:	fc cf       	rjmp	.-8      	; 0x106 <_Z6strlenPc+0xe>
+ 10e:	08 95       	ret
+ 110:	80 e0       	ldi	r24, 0x00	; 0
+ 112:	90 e0       	ldi	r25, 0x00	; 0
+	return i;
+}
+ 114:	08 95       	ret
 
-	if (buflen <= 0 || sock != 0) return 0;
-  20:	0c 94 3c 00 	jmp	0x78	; 0x78 <__bad_interrupt>
-  24:	0c 94 98 00 	jmp	0x130	; 0x130 <__vector_9>
-  28:	0c 94 3c 00 	jmp	0x78	; 0x78 <__bad_interrupt>
-//	#if _DEBUG_MODE
-//	printf("Send Size: %d\n",buflen);
-//	#endif
-
-	// Make sure the TX Free Size Register is available
-	txsize=SPI_Read(SO_TX_FSR);
-  2c:	0c 94 3c 00 	jmp	0x78	; 0x78 <__bad_interrupt>
-  30:	0c 94 3c 00 	jmp	0x78	; 0x78 <__bad_interrupt>
-  34:	0c 94 f0 00 	jmp	0x1e0	; 0x1e0 <__vector_13>
-	txsize=(((txsize & 0x00FF) << 8 ) + SPI_Read(SO_TX_FSR + 1));
-  38:	0c 94 19 01 	jmp	0x232	; 0x232 <__vector_14>
-  3c:	0c 94 3c 00 	jmp	0x78	; 0x78 <__bad_interrupt>
-  40:	0c 94 3c 00 	jmp	0x78	; 0x78 <__bad_interrupt>
-  44:	0c 94 3c 00 	jmp	0x78	; 0x78 <__bad_interrupt>
-//	#if _DEBUG_MODE
-//	printf("TX Free Size: %d\n",txsize);
-//	#endif
-
-	timeout=0;
-	while (txsize < buflen) {
-  48:	0c 94 3c 00 	jmp	0x78	; 0x78 <__bad_interrupt>
-  4c:	0c 94 3c 00 	jmp	0x78	; 0x78 <__bad_interrupt>
-  50:	0c 94 3c 00 	jmp	0x78	; 0x78 <__bad_interrupt>
-
-00000054 <__ctors_end>:
+00000116 <main>:
+unsigned char buf[MAX_BUF];
+int main(void)
+{
+ 116:	cf 93       	push	r28
+ 118:	df 93       	push	r29
+ 11a:	cd b7       	in	r28, 0x3d	; 61
+ 11c:	de b7       	in	r29, 0x3e	; 62
+ 11e:	63 97       	sbiw	r28, 0x13	; 19
+ 120:	0f b6       	in	r0, 0x3f	; 63
+ 122:	f8 94       	cli
+ 124:	de bf       	out	0x3e, r29	; 62
+ 126:	0f be       	out	0x3f, r0	; 63
+ 128:	cd bf       	out	0x3d, r28	; 61
+	
+	uart_init(UART_BAUD_SELECT(9600,F_CPU));
+ 12a:	83 e3       	ldi	r24, 0x33	; 51
+ 12c:	90 e0       	ldi	r25, 0x00	; 0
+ 12e:	0e 94 9c 01 	call	0x338	; 0x338 <uart_init>
+	spi_init();
+ 132:	0e 94 0c 01 	call	0x218	; 0x218 <spi_init>
+	w5100 ethernet;
+ 136:	ce 01       	movw	r24, r28
+ 138:	01 96       	adiw	r24, 0x01	; 1
+ 13a:	0e 94 b0 01 	call	0x360	; 0x360 <_ZN5w5100C1Ev>
+	ethernet.init();
+ 13e:	ce 01       	movw	r24, r28
+ 140:	01 96       	adiw	r24, 0x01	; 1
+ 142:	0e 94 f2 01 	call	0x3e4	; 0x3e4 <_ZN5w51004initEv>
+	ethernet.socket(0,MR_TCP,80);
+ 146:	20 e5       	ldi	r18, 0x50	; 80
+ 148:	30 e0       	ldi	r19, 0x00	; 0
+ 14a:	41 e0       	ldi	r20, 0x01	; 1
+ 14c:	60 e0       	ldi	r22, 0x00	; 0
+ 14e:	ce 01       	movw	r24, r28
+ 150:	01 96       	adiw	r24, 0x01	; 1
+ 152:	0e 94 9d 02 	call	0x53a	; 0x53a <_ZN5w51006socketEhhj>
+	systime::sysTimeInit();
+ 156:	0e 94 3c 01 	call	0x278	; 0x278 <_ZN7systime11sysTimeInitEv>
+	sei();
+ 15a:	78 94       	sei
+	//	if(getRFID(id))
+		//{
+	//		for(int i=0;i<12;i++)uart_putc(id[i]);
+			//uart_puts_p("\n\r");
+	//	}
+		sockStatus=ethernet.getStatus();
+ 15c:	ce 01       	movw	r24, r28
+ 15e:	01 96       	adiw	r24, 0x01	; 1
+ 160:	0e 94 62 04 	call	0x8c4	; 0x8c4 <_ZN5w51009getStatusEv>
+		switch(sockStatus)
+ 164:	00 97       	sbiw	r24, 0x00	; 0
+ 166:	19 f0       	breq	.+6      	; 0x16e <main+0x58>
+ 168:	47 97       	sbiw	r24, 0x17	; 23
+ 16a:	c9 f0       	breq	.+50     	; 0x19e <main+0x88>
+ 16c:	4f c0       	rjmp	.+158    	; 0x20c <main+0xf6>
+		{
+			case SOCK_CLOSED:
+				if(ethernet.socket(0,MR_TCP,80)>0)
+ 16e:	20 e5       	ldi	r18, 0x50	; 80
+ 170:	30 e0       	ldi	r19, 0x00	; 0
+ 172:	41 e0       	ldi	r20, 0x01	; 1
+ 174:	60 e0       	ldi	r22, 0x00	; 0
+ 176:	ce 01       	movw	r24, r28
+ 178:	01 96       	adiw	r24, 0x01	; 1
+ 17a:	0e 94 9d 02 	call	0x53a	; 0x53a <_ZN5w51006socketEhhj>
+ 17e:	88 23       	and	r24, r24
+ 180:	69 f3       	breq	.-38     	; 0x15c <main+0x46>
+				{
+					//if closed then listen to a connection
+					if(ethernet.listen(0)==0)
+ 182:	60 e0       	ldi	r22, 0x00	; 0
+ 184:	ce 01       	movw	r24, r28
+ 186:	01 96       	adiw	r24, 0x01	; 1
+ 188:	0e 94 e7 02 	call	0x5ce	; 0x5ce <_ZN5w51006listenEh>
+ 18c:	81 11       	cpse	r24, r1
+ 18e:	e6 cf       	rjmp	.-52     	; 0x15c <main+0x46>
 	#else
 		//round up by default
 		__ticks_dc = (uint32_t)(ceil(fabs(__tmp)));
 	#endif
 
 	__builtin_avr_delay_cycles(__ticks_dc);
-  54:	11 24       	eor	r1, r1
-  56:	1f be       	out	0x3f, r1	; 63
-  58:	cf e5       	ldi	r28, 0x5F	; 95
-  5a:	d8 e0       	ldi	r29, 0x08	; 8
-  5c:	de bf       	out	0x3e, r29	; 62
-		_delay_ms(1);
+ 190:	8f ec       	ldi	r24, 0xCF	; 207
+ 192:	97 e0       	ldi	r25, 0x07	; 7
+ 194:	01 97       	sbiw	r24, 0x01	; 1
+ 196:	f1 f7       	brne	.-4      	; 0x194 <main+0x7e>
+ 198:	00 c0       	rjmp	.+0      	; 0x19a <main+0x84>
+ 19a:	00 00       	nop
+ 19c:	df cf       	rjmp	.-66     	; 0x15c <main+0x46>
+					_delay_ms(1); //delay and end
+					
+				}
+				break;
+			case SOCK_ESTABLISHED:
+				rsize=ethernet.recv_size();
+ 19e:	ce 01       	movw	r24, r28
+ 1a0:	01 96       	adiw	r24, 0x01	; 1
+ 1a2:	0e 94 48 04 	call	0x890	; 0x890 <_ZN5w51009recv_sizeEv>
+				if(rsize>0)
+ 1a6:	00 97       	sbiw	r24, 0x00	; 0
+ 1a8:	c9 f2       	breq	.-78     	; 0x15c <main+0x46>
+				{
+					if(ethernet.recv(0,buf,rsize)<=0)break;
+ 1aa:	9c 01       	movw	r18, r24
+ 1ac:	46 e6       	ldi	r20, 0x66	; 102
+ 1ae:	50 e0       	ldi	r21, 0x00	; 0
+ 1b0:	60 e0       	ldi	r22, 0x00	; 0
+ 1b2:	ce 01       	movw	r24, r28
+ 1b4:	01 96       	adiw	r24, 0x01	; 1
+ 1b6:	0e 94 d6 03 	call	0x7ac	; 0x7ac <_ZN5w51004recvEhPhj>
+ 1ba:	89 2b       	or	r24, r25
+ 1bc:	79 f2       	breq	.-98     	; 0x15c <main+0x46>
+					//create response header
+					strcpy_P((char *)buf,PSTR("HTTP/1.0 200 OK\r\nContent-Type: text/html\r\n"));
+ 1be:	6f e8       	ldi	r22, 0x8F	; 143
+ 1c0:	70 e0       	ldi	r23, 0x00	; 0
+ 1c2:	86 e6       	ldi	r24, 0x66	; 102
+ 1c4:	90 e0       	ldi	r25, 0x00	; 0
+ 1c6:	0e 94 73 04 	call	0x8e6	; 0x8e6 <strcpy_P>
+					strcat_P((char *)buf,PSTR("<html><body><span style=\"color:#0000A0\">\r\n"));
+ 1ca:	64 e6       	ldi	r22, 0x64	; 100
+ 1cc:	70 e0       	ldi	r23, 0x00	; 0
+ 1ce:	86 e6       	ldi	r24, 0x66	; 102
+ 1d0:	90 e0       	ldi	r25, 0x00	; 0
+ 1d2:	0e 94 68 04 	call	0x8d0	; 0x8d0 <strcat_P>
+					strcat_P((char *)buf,PSTR("<h1>RFID</h1>\r\n"));
+ 1d6:	64 e5       	ldi	r22, 0x54	; 84
+ 1d8:	70 e0       	ldi	r23, 0x00	; 0
+ 1da:	86 e6       	ldi	r24, 0x66	; 102
+ 1dc:	90 e0       	ldi	r25, 0x00	; 0
+ 1de:	0e 94 68 04 	call	0x8d0	; 0x8d0 <strcat_P>
+					
+					//send response header
+					if(ethernet.send(0,buf,strlen((char*)buf))<=0)break;
+ 1e2:	86 e6       	ldi	r24, 0x66	; 102
+ 1e4:	90 e0       	ldi	r25, 0x00	; 0
+ 1e6:	0e 94 7c 00 	call	0xf8	; 0xf8 <_Z6strlenPc>
+ 1ea:	9c 01       	movw	r18, r24
+ 1ec:	46 e6       	ldi	r20, 0x66	; 102
+ 1ee:	50 e0       	ldi	r21, 0x00	; 0
+ 1f0:	60 e0       	ldi	r22, 0x00	; 0
+ 1f2:	ce 01       	movw	r24, r28
+ 1f4:	01 96       	adiw	r24, 0x01	; 1
+ 1f6:	0e 94 14 03 	call	0x628	; 0x628 <_ZN5w51004sendEhPKhj>
+ 1fa:	89 2b       	or	r24, r25
+ 1fc:	09 f4       	brne	.+2      	; 0x200 <main+0xea>
+ 1fe:	ae cf       	rjmp	.-164    	; 0x15c <main+0x46>
+					ethernet.disconnect(0);
+ 200:	60 e0       	ldi	r22, 0x00	; 0
+ 202:	ce 01       	movw	r24, r28
+ 204:	01 96       	adiw	r24, 0x01	; 1
+ 206:	0e 94 89 02 	call	0x512	; 0x512 <_ZN5w510010disconnectEh>
+ 20a:	a8 cf       	rjmp	.-176    	; 0x15c <main+0x46>
+					
+				}
+				break;
+			default:
+			// Force to close the socket
+				ethernet.close(0);
+ 20c:	60 e0       	ldi	r22, 0x00	; 0
+ 20e:	ce 01       	movw	r24, r28
+ 210:	01 96       	adiw	r24, 0x01	; 1
+ 212:	0e 94 75 02 	call	0x4ea	; 0x4ea <_ZN5w51005closeEh>
+				break;
+ 216:	a2 cf       	rjmp	.-188    	; 0x15c <main+0x46>
 
-		txsize=SPI_Read(SO_TX_FSR);
-  5e:	cd bf       	out	0x3d, r28	; 61
+00000218 <spi_init>:
 
-00000060 <__do_clear_bss>:
-  60:	20 e0       	ldi	r18, 0x00	; 0
-  62:	a0 e6       	ldi	r26, 0x60	; 96
-  64:	b0 e0       	ldi	r27, 0x00	; 0
-  66:	01 c0       	rjmp	.+2      	; 0x6a <.do_clear_bss_start>
 
-00000068 <.do_clear_bss_loop>:
-  68:	1d 92       	st	X+, r1
-
-0000006a <.do_clear_bss_start>:
-  6a:	a9 3a       	cpi	r26, 0xA9	; 169
-		txsize=(((txsize & 0x00FF) << 8 ) + SPI_Read(SO_TX_FSR + 1));
-  6c:	b2 07       	cpc	r27, r18
-  6e:	e1 f7       	brne	.-8      	; 0x68 <.do_clear_bss_loop>
-  70:	0e 94 75 00 	call	0xea	; 0xea <main>
-  74:	0c 94 d0 02 	jmp	0x5a0	; 0x5a0 <_exit>
-
-00000078 <__bad_interrupt>:
-  78:	0c 94 00 00 	jmp	0	; 0x0 <__vectors>
-
-0000007c <_Z7getRFIDPc>:
-  7c:	bf 92       	push	r11
-  7e:	cf 92       	push	r12
-  80:	df 92       	push	r13
-  82:	ef 92       	push	r14
-  84:	ff 92       	push	r15
-
-		// Timeout for approx 1000 ms
-		if (timeout++ > 1000) {
-  86:	0f 93       	push	r16
-  88:	1f 93       	push	r17
-  8a:	cf 93       	push	r28
-//			#if _DEBUG_MODE
-//			printf("TX Free Size Error!\n");
-//			#endif
-			// Disconnect the connection
-			disconnect(sock);
-  8c:	df 93       	push	r29
-  8e:	ec 01       	movw	r28, r24
-  90:	0e 94 e3 00 	call	0x1c6	; 0x1c6 <_ZN7systime10getSysTimeEv>
-			return 0;
-  94:	6b 01       	movw	r12, r22
-  96:	7c 01       	movw	r14, r24
-  98:	b1 2c       	mov	r11, r1
-//	#if _DEBUG_MODE
-//	printf("TX Free Size: %d\n",txsize);
-//	#endif
-
-	timeout=0;
-	while (txsize < buflen) {
-  9a:	0c c0       	rjmp	.+24     	; 0xb4 <_Z7getRFIDPc+0x38>
-  9c:	0e 94 7e 01 	call	0x2fc	; 0x2fc <uart_available>
-  a0:	89 2b       	or	r24, r25
-//	#if _DEBUG_MODE
-//	printf("TX Buffer: %x\n",offaddr);
-//	#endif
-
-	while(buflen) {
-		buflen--;
-  a2:	41 f0       	breq	.+16     	; 0xb4 <_Z7getRFIDPc+0x38>
-  a4:	8e 01       	movw	r16, r28
-		// Calculate the real W5100 physical Tx Buffer Address
-		realaddr = TXBUFADDR + (offaddr & TX_BUF_MASK);
-  a6:	0b 0d       	add	r16, r11
-  a8:	11 1d       	adc	r17, r1
-  aa:	0e 94 52 01 	call	0x2a4	; 0x2a4 <uart_getc>
-
-		// Copy the application data to the W5100 Tx Buffer
-		SPI_Write(realaddr,*buf);
-  ae:	f8 01       	movw	r30, r16
-  b0:	80 83       	st	Z, r24
-  b2:	b3 94       	inc	r11
-  b4:	0e 94 e3 00 	call	0x1c6	; 0x1c6 <_ZN7systime10getSysTimeEv>
-		offaddr++;
-  b8:	ab 01       	movw	r20, r22
-  ba:	bc 01       	movw	r22, r24
-  bc:	4c 19       	sub	r20, r12
-	offaddr = (((ptr & 0x00FF) << 8 ) + SPI_Read(S0_TX_WR + 1));
-//	#if _DEBUG_MODE
-//	printf("TX Buffer: %x\n",offaddr);
-//	#endif
-
-	while(buflen) {
-  be:	5d 09       	sbc	r21, r13
-  c0:	6e 09       	sbc	r22, r14
-  c2:	7f 09       	sbc	r23, r15
-  c4:	44 36       	cpi	r20, 0x64	; 100
-  c6:	51 05       	cpc	r21, r1
-		offaddr++;
-		buf++;
-	}
-
-	// Increase the S0_TX_WR value, so it point to the next transmit
-	SPI_Write(S0_TX_WR,(offaddr & 0xFF00) >> 8 );
-  c8:	61 05       	cpc	r22, r1
-  ca:	71 05       	cpc	r23, r1
-  cc:	38 f3       	brcs	.-50     	; 0x9c <_Z7getRFIDPc+0x20>
-  ce:	81 e0       	ldi	r24, 0x01	; 1
-  d0:	fc e0       	ldi	r31, 0x0C	; 12
-  d2:	bf 12       	cpse	r11, r31
-	SPI_Write(S0_TX_WR + 1,(offaddr & 0x00FF));
-  d4:	80 e0       	ldi	r24, 0x00	; 0
-  d6:	df 91       	pop	r29
-  d8:	cf 91       	pop	r28
-  da:	1f 91       	pop	r17
-  dc:	0f 91       	pop	r16
-  de:	ff 90       	pop	r15
-
-	// Now Send the SEND command
-	SPI_Write(S0_CR,CR_SEND);
-  e0:	ef 90       	pop	r14
-  e2:	df 90       	pop	r13
-  e4:	cf 90       	pop	r12
-  e6:	bf 90       	pop	r11
-  e8:	08 95       	ret
-
-000000ea <main>:
-  ea:	83 e3       	ldi	r24, 0x33	; 51
-
-	// Wait for Sending Process
-	while(SPI_Read(S0_CR));
-  ec:	90 e0       	ldi	r25, 0x00	; 0
-  ee:	0e 94 3e 01 	call	0x27c	; 0x27c <uart_init>
-  f2:	0e 94 8d 00 	call	0x11a	; 0x11a <spi_init>
-  f6:	0e 94 bd 00 	call	0x17a	; 0x17a <_ZN7systime11sysTimeInitEv>
-  fa:	78 94       	sei
-
-unsigned int w5100::send(unsigned char sock , const unsigned char * buf, unsigned int buflen)
+void spi_init()
+// Initialize pins for spi communication
 {
-	uint16_t ptr,offaddr,realaddr,txsize,timeout;
+	DDR_SPI &= ~((1<<DD_MOSI)|(1<<DD_MISO)|(1<<DD_SS)|(1<<DD_SCK));
+ 218:	87 b3       	in	r24, 0x17	; 23
+ 21a:	8f 70       	andi	r24, 0x0F	; 15
+ 21c:	87 bb       	out	0x17, r24	; 23
+	// Define the following pins as output
+	DDR_SPI |= ((1<<DD_MOSI)|(1<<DD_SS)|(1<<DD_SCK));
+ 21e:	87 b3       	in	r24, 0x17	; 23
+ 220:	80 6b       	ori	r24, 0xB0	; 176
+ 222:	87 bb       	out	0x17, r24	; 23
+	
+	SPCR = ((1<<SPE)|               // SPI Enable
+ 224:	81 e5       	ldi	r24, 0x51	; 81
+ 226:	8d b9       	out	0x0d, r24	; 13
+	(1<<MSTR)|              // Master/Slave select
+	(0<<SPR1)|(1<<SPR0)|    // SPI Clock Rate
+	(0<<CPOL)|              // Clock Polarity (0:SCK low / 1:SCK hi when idle)
+	(0<<CPHA));             // Clock Phase (0:leading / 1:trailing edge sampling)
 
-	if (buflen <= 0 || sock != 0) return 0;
-  fc:	80 e0       	ldi	r24, 0x00	; 0
-  fe:	90 e0       	ldi	r25, 0x00	; 0
- 100:	0e 94 3e 00 	call	0x7c	; 0x7c <_Z7getRFIDPc>
- 104:	88 23       	and	r24, r24
- 106:	d1 f3       	breq	.-12     	; 0xfc <main+0x12>
-	SPI_Write(S0_CR,CR_SEND);
+	SPSR = (1<<SPI2X);              // Double Clock Rate
+ 228:	81 e0       	ldi	r24, 0x01	; 1
+ 22a:	8e b9       	out	0x0e, r24	; 14
+ 22c:	08 95       	ret
 
-	// Wait for Sending Process
-	while(SPI_Read(S0_CR));
-
-	return 1;
- 108:	c0 e0       	ldi	r28, 0x00	; 0
- 10a:	d0 e0       	ldi	r29, 0x00	; 0
- 10c:	89 91       	ld	r24, Y+
-			return 0;
-		}
-	}
-
-	// Read the Tx Write Pointer
-	ptr = SPI_Read(S0_TX_WR);
- 10e:	0e 94 6d 01 	call	0x2da	; 0x2da <uart_putc>
- 112:	cc 30       	cpi	r28, 0x0C	; 12
- 114:	d1 05       	cpc	r29, r1
- 116:	d1 f7       	brne	.-12     	; 0x10c <main+0x22>
- 118:	f1 cf       	rjmp	.-30     	; 0xfc <main+0x12>
-
-0000011a <spi_init>:
-	offaddr = (((ptr & 0x00FF) << 8 ) + SPI_Read(S0_TX_WR + 1));
- 11a:	87 b3       	in	r24, 0x17	; 23
- 11c:	8f 70       	andi	r24, 0x0F	; 15
- 11e:	87 bb       	out	0x17, r24	; 23
- 120:	87 b3       	in	r24, 0x17	; 23
- 122:	80 6b       	ori	r24, 0xB0	; 176
-			return 0;
-		}
-	}
-
-	// Read the Tx Write Pointer
-	ptr = SPI_Read(S0_TX_WR);
- 124:	87 bb       	out	0x17, r24	; 23
-	offaddr = (((ptr & 0x00FF) << 8 ) + SPI_Read(S0_TX_WR + 1));
- 126:	81 e5       	ldi	r24, 0x51	; 81
- 128:	8d b9       	out	0x0d, r24	; 13
- 12a:	81 e0       	ldi	r24, 0x01	; 1
- 12c:	8e b9       	out	0x0e, r24	; 14
- 12e:	08 95       	ret
-
-00000130 <__vector_9>:
- 130:	1f 92       	push	r1
- 132:	0f 92       	push	r0
- 134:	0f b6       	in	r0, 0x3f	; 63
- 136:	0f 92       	push	r0
- 138:	11 24       	eor	r1, r1
- 13a:	8f 93       	push	r24
- 13c:	9f 93       	push	r25
- 13e:	af 93       	push	r26
-
-	timeout=0;
-	while (txsize < buflen) {
-		_delay_ms(1);
-
-		txsize=SPI_Read(SO_TX_FSR);
- 140:	bf 93       	push	r27
- 142:	80 91 60 00 	lds	r24, 0x0060
- 146:	90 91 61 00 	lds	r25, 0x0061
- 14a:	a0 91 62 00 	lds	r26, 0x0062
-		txsize=(((txsize & 0x00FF) << 8 ) + SPI_Read(SO_TX_FSR + 1));
- 14e:	b0 91 63 00 	lds	r27, 0x0063
- 152:	01 96       	adiw	r24, 0x01	; 1
- 154:	a1 1d       	adc	r26, r1
- 156:	b1 1d       	adc	r27, r1
- 158:	80 93 60 00 	sts	0x0060, r24
- 15c:	90 93 61 00 	sts	0x0061, r25
- 160:	a0 93 62 00 	sts	0x0062, r26
- 164:	b0 93 63 00 	sts	0x0063, r27
- 168:	bf 91       	pop	r27
-
-	// Wait for Sending Process
-	while(SPI_Read(S0_CR));
-
-	return 1;
+0000022e <__vector_9>:
+//INTERRUPT EVENT HANDLER
+//INPUT		: NONE
+//OUTPUT	: NONE
+//TIMER3 OVERFLOW INTERRUPT occurs every 4.55 Seconds
+ISR(TIMER1_OVF_vect)	
+{
+ 22e:	1f 92       	push	r1
+ 230:	0f 92       	push	r0
+ 232:	0f b6       	in	r0, 0x3f	; 63
+ 234:	0f 92       	push	r0
+ 236:	11 24       	eor	r1, r1
+ 238:	8f 93       	push	r24
+ 23a:	9f 93       	push	r25
+ 23c:	af 93       	push	r26
+ 23e:	bf 93       	push	r27
+	overflows++;
+ 240:	80 91 66 02 	lds	r24, 0x0266
+ 244:	90 91 67 02 	lds	r25, 0x0267
+ 248:	a0 91 68 02 	lds	r26, 0x0268
+ 24c:	b0 91 69 02 	lds	r27, 0x0269
+ 250:	01 96       	adiw	r24, 0x01	; 1
+ 252:	a1 1d       	adc	r26, r1
+ 254:	b1 1d       	adc	r27, r1
+ 256:	80 93 66 02 	sts	0x0266, r24
+ 25a:	90 93 67 02 	sts	0x0267, r25
+ 25e:	a0 93 68 02 	sts	0x0268, r26
+ 262:	b0 93 69 02 	sts	0x0269, r27
 }
- 16a:	af 91       	pop	r26
- 16c:	9f 91       	pop	r25
- 16e:	8f 91       	pop	r24
- 170:	0f 90       	pop	r0
- 172:	0f be       	out	0x3f, r0	; 63
- 174:	0f 90       	pop	r0
- 176:	1f 90       	pop	r1
- 178:	18 95       	reti
+ 266:	bf 91       	pop	r27
+ 268:	af 91       	pop	r26
+ 26a:	9f 91       	pop	r25
+ 26c:	8f 91       	pop	r24
+ 26e:	0f 90       	pop	r0
+ 270:	0f be       	out	0x3f, r0	; 63
+ 272:	0f 90       	pop	r0
+ 274:	1f 90       	pop	r1
+ 276:	18 95       	reti
 
-0000017a <_ZN7systime11sysTimeInitEv>:
- 17a:	f8 94       	cli
- 17c:	1f bc       	out	0x2f, r1	; 47
- 17e:	85 e0       	ldi	r24, 0x05	; 5
- 180:	8e bd       	out	0x2e, r24	; 46
- 182:	84 e0       	ldi	r24, 0x04	; 4
+00000278 <_ZN7systime11sysTimeInitEv>:
+//OUTPUT	: NONE
+//	Initialises the Timer1 with prescaler of 1024 sync to system clock
+void sysTimeInit()
+{
+	
+	cli();							//disable interrupts
+ 278:	f8 94       	cli
 	TCCR1A=0;
+ 27a:	1f bc       	out	0x2f, r1	; 47
 	TCCR1B=(1<<CS12)|(1<<CS10);		//use prescaler of 1024
+ 27c:	85 e0       	ldi	r24, 0x05	; 5
+ 27e:	8e bd       	out	0x2e, r24	; 46
 									//counting clock is now F_OSC/1024
 									//corresponding to 69.44 uS on 14.7456 MHz
 	//TCCR1C=0;
 	TIMSK=1<<TOIE1;				// Enable timer overflow interrupt
- 184:	89 bf       	out	0x39, r24	; 57
+ 280:	84 e0       	ldi	r24, 0x04	; 4
+ 282:	89 bf       	out	0x39, r24	; 57
 	overflows=0;
- 186:	10 92 60 00 	sts	0x0060, r1
- 18a:	10 92 61 00 	sts	0x0061, r1
- 18e:	10 92 62 00 	sts	0x0062, r1
- 192:	10 92 63 00 	sts	0x0063, r1
+ 284:	10 92 66 02 	sts	0x0266, r1
+ 288:	10 92 67 02 	sts	0x0267, r1
+ 28c:	10 92 68 02 	sts	0x0268, r1
+ 290:	10 92 69 02 	sts	0x0269, r1
 	TCNT1=0;						//clear timer1 counter value
- 196:	1d bc       	out	0x2d, r1	; 45
- 198:	1c bc       	out	0x2c, r1	; 44
+ 294:	1d bc       	out	0x2d, r1	; 45
+ 296:	1c bc       	out	0x2c, r1	; 44
 	sei();							//Enable interrupts	
- 19a:	78 94       	sei
- 19c:	08 95       	ret
+ 298:	78 94       	sei
+ 29a:	08 95       	ret
 
-0000019e <_ZN7systime13getSysTimeRawEv>:
-//FUNCTION  : getSysTimeRaw()
-//INPUT		: NONE
-//OUTPUT	: returns time ticks (raw counter values with overflows) after initialisation of sysTime
-unsigned long  getSysTimeRaw()			//returns the raw countervalue
-{
-	unsigned long temptime=TCNT1;					//get counter value at this state
- 19e:	2c b5       	in	r18, 0x2c	; 44
- 1a0:	3d b5       	in	r19, 0x2d	; 45
-	return overflows*65536+temptime;				
- 1a2:	80 91 60 00 	lds	r24, 0x0060
- 1a6:	90 91 61 00 	lds	r25, 0x0061
- 1aa:	a0 91 62 00 	lds	r26, 0x0062
- 1ae:	b0 91 63 00 	lds	r27, 0x0063
- 1b2:	dc 01       	movw	r26, r24
- 1b4:	99 27       	eor	r25, r25
- 1b6:	88 27       	eor	r24, r24
- 1b8:	bc 01       	movw	r22, r24
- 1ba:	cd 01       	movw	r24, r26
- 1bc:	62 0f       	add	r22, r18
- 1be:	73 1f       	adc	r23, r19
- 1c0:	81 1d       	adc	r24, r1
- 1c2:	91 1d       	adc	r25, r1
-}
- 1c4:	08 95       	ret
-
-000001c6 <_ZN7systime10getSysTimeEv>:
-//INPUT		: NONE
-//OUTPUT	: returns time in milli Seconds after initialisatin of sysTime
-//corresponding F_CPU will have one Tick of prescale/F_CPU time unit
-unsigned long getSysTime()		
-{
-	return (unsigned long)(getSysTimeRaw()*0.128);
- 1c6:	0e 94 cf 00 	call	0x19e	; 0x19e <_ZN7systime13getSysTimeRawEv>
- 1ca:	0e 94 b7 01 	call	0x36e	; 0x36e <__floatunsisf>
- 1ce:	2f e6       	ldi	r18, 0x6F	; 111
- 1d0:	32 e1       	ldi	r19, 0x12	; 18
- 1d2:	43 e0       	ldi	r20, 0x03	; 3
- 1d4:	5e e3       	ldi	r21, 0x3E	; 62
- 1d6:	0e 94 1d 02 	call	0x43a	; 0x43a <__mulsf3>
- 1da:	0e 94 8b 01 	call	0x316	; 0x316 <__fixunssfsi>
-}
- 1de:	08 95       	ret
-
-000001e0 <__vector_13>:
+0000029c <__vector_13>:
 ISR(UART0_RECEIVE_INTERRUPT)
 /*************************************************************************
 Function: UART Receive Complete interrupt
 Purpose:  called when the UART has received a character
 **************************************************************************/
 {
- 1e0:	1f 92       	push	r1
- 1e2:	0f 92       	push	r0
- 1e4:	0f b6       	in	r0, 0x3f	; 63
- 1e6:	0f 92       	push	r0
- 1e8:	11 24       	eor	r1, r1
- 1ea:	2f 93       	push	r18
- 1ec:	8f 93       	push	r24
- 1ee:	9f 93       	push	r25
- 1f0:	ef 93       	push	r30
- 1f2:	ff 93       	push	r31
+ 29c:	1f 92       	push	r1
+ 29e:	0f 92       	push	r0
+ 2a0:	0f b6       	in	r0, 0x3f	; 63
+ 2a2:	0f 92       	push	r0
+ 2a4:	11 24       	eor	r1, r1
+ 2a6:	2f 93       	push	r18
+ 2a8:	8f 93       	push	r24
+ 2aa:	9f 93       	push	r25
+ 2ac:	ef 93       	push	r30
+ 2ae:	ff 93       	push	r31
     unsigned char usr;
     unsigned char lastRxError;
  
  
     /* read UART status register and UART data register */ 
     usr  = UART0_STATUS;
- 1f4:	8b b1       	in	r24, 0x0b	; 11
+ 2b0:	8b b1       	in	r24, 0x0b	; 11
     data = UART0_DATA;
- 1f6:	2c b1       	in	r18, 0x0c	; 12
+ 2b2:	2c b1       	in	r18, 0x0c	; 12
     
     /* */
 #if defined( AT90_UART )
     lastRxError = (usr & (_BV(FE)|_BV(DOR)) );
 #elif defined( ATMEGA_USART )
     lastRxError = (usr & (_BV(FE)|_BV(DOR)) );
- 1f8:	88 71       	andi	r24, 0x18	; 24
+ 2b4:	88 71       	andi	r24, 0x18	; 24
 #elif defined ( ATMEGA_UART )
     lastRxError = (usr & (_BV(FE)|_BV(DOR)) );
 #endif
         
     /* calculate buffer index */ 
     tmphead = ( UART_RxHead + 1) & UART_RX_BUFFER_MASK;
- 1fa:	e0 91 66 00 	lds	r30, 0x0066
- 1fe:	ef 5f       	subi	r30, 0xFF	; 255
- 200:	ef 71       	andi	r30, 0x1F	; 31
+ 2b6:	e0 91 6c 02 	lds	r30, 0x026C
+ 2ba:	ef 5f       	subi	r30, 0xFF	; 255
+ 2bc:	ef 71       	andi	r30, 0x1F	; 31
     
     if ( tmphead == UART_RxTail ) {
- 202:	90 91 65 00 	lds	r25, 0x0065
- 206:	e9 17       	cp	r30, r25
- 208:	39 f0       	breq	.+14     	; 0x218 <__vector_13+0x38>
+ 2be:	90 91 6b 02 	lds	r25, 0x026B
+ 2c2:	e9 17       	cp	r30, r25
+ 2c4:	39 f0       	breq	.+14     	; 0x2d4 <__vector_13+0x38>
         /* error: receive buffer overflow */
         lastRxError = UART_BUFFER_OVERFLOW >> 8;
     }else{
         /* store new index */
         UART_RxHead = tmphead;
- 20a:	e0 93 66 00 	sts	0x0066, r30
+ 2c6:	e0 93 6c 02 	sts	0x026C, r30
         /* store received data in buffer */
         UART_RxBuf[tmphead] = data;
- 20e:	f0 e0       	ldi	r31, 0x00	; 0
- 210:	e7 59       	subi	r30, 0x97	; 151
- 212:	ff 4f       	sbci	r31, 0xFF	; 255
- 214:	20 83       	st	Z, r18
- 216:	01 c0       	rjmp	.+2      	; 0x21a <__vector_13+0x3a>
+ 2ca:	f0 e0       	ldi	r31, 0x00	; 0
+ 2cc:	e1 59       	subi	r30, 0x91	; 145
+ 2ce:	fd 4f       	sbci	r31, 0xFD	; 253
+ 2d0:	20 83       	st	Z, r18
+ 2d2:	01 c0       	rjmp	.+2      	; 0x2d6 <__vector_13+0x3a>
     /* calculate buffer index */ 
     tmphead = ( UART_RxHead + 1) & UART_RX_BUFFER_MASK;
     
     if ( tmphead == UART_RxTail ) {
         /* error: receive buffer overflow */
         lastRxError = UART_BUFFER_OVERFLOW >> 8;
- 218:	82 e0       	ldi	r24, 0x02	; 2
+ 2d4:	82 e0       	ldi	r24, 0x02	; 2
         /* store new index */
         UART_RxHead = tmphead;
         /* store received data in buffer */
         UART_RxBuf[tmphead] = data;
     }
     UART_LastRxError = lastRxError;   
- 21a:	80 93 64 00 	sts	0x0064, r24
+ 2d6:	80 93 6a 02 	sts	0x026A, r24
 }
- 21e:	ff 91       	pop	r31
- 220:	ef 91       	pop	r30
- 222:	9f 91       	pop	r25
- 224:	8f 91       	pop	r24
- 226:	2f 91       	pop	r18
- 228:	0f 90       	pop	r0
- 22a:	0f be       	out	0x3f, r0	; 63
- 22c:	0f 90       	pop	r0
- 22e:	1f 90       	pop	r1
- 230:	18 95       	reti
+ 2da:	ff 91       	pop	r31
+ 2dc:	ef 91       	pop	r30
+ 2de:	9f 91       	pop	r25
+ 2e0:	8f 91       	pop	r24
+ 2e2:	2f 91       	pop	r18
+ 2e4:	0f 90       	pop	r0
+ 2e6:	0f be       	out	0x3f, r0	; 63
+ 2e8:	0f 90       	pop	r0
+ 2ea:	1f 90       	pop	r1
+ 2ec:	18 95       	reti
 
-00000232 <__vector_14>:
+000002ee <__vector_14>:
 ISR(UART0_TRANSMIT_INTERRUPT)
 /*************************************************************************
 Function: UART Data Register Empty interrupt
 Purpose:  called when the UART is ready to transmit the next byte
 **************************************************************************/
 {
- 232:	1f 92       	push	r1
- 234:	0f 92       	push	r0
- 236:	0f b6       	in	r0, 0x3f	; 63
- 238:	0f 92       	push	r0
- 23a:	11 24       	eor	r1, r1
- 23c:	8f 93       	push	r24
- 23e:	9f 93       	push	r25
- 240:	ef 93       	push	r30
- 242:	ff 93       	push	r31
+ 2ee:	1f 92       	push	r1
+ 2f0:	0f 92       	push	r0
+ 2f2:	0f b6       	in	r0, 0x3f	; 63
+ 2f4:	0f 92       	push	r0
+ 2f6:	11 24       	eor	r1, r1
+ 2f8:	8f 93       	push	r24
+ 2fa:	9f 93       	push	r25
+ 2fc:	ef 93       	push	r30
+ 2fe:	ff 93       	push	r31
     unsigned char tmptail;
 
     
     if ( UART_TxHead != UART_TxTail) {
- 244:	90 91 68 00 	lds	r25, 0x0068
- 248:	80 91 67 00 	lds	r24, 0x0067
- 24c:	98 17       	cp	r25, r24
- 24e:	61 f0       	breq	.+24     	; 0x268 <__vector_14+0x36>
+ 300:	90 91 6e 02 	lds	r25, 0x026E
+ 304:	80 91 6d 02 	lds	r24, 0x026D
+ 308:	98 17       	cp	r25, r24
+ 30a:	61 f0       	breq	.+24     	; 0x324 <__vector_14+0x36>
         /* calculate and store new buffer index */
         tmptail = (UART_TxTail + 1) & UART_TX_BUFFER_MASK;
- 250:	e0 91 67 00 	lds	r30, 0x0067
- 254:	ef 5f       	subi	r30, 0xFF	; 255
- 256:	ef 71       	andi	r30, 0x1F	; 31
+ 30c:	e0 91 6d 02 	lds	r30, 0x026D
+ 310:	ef 5f       	subi	r30, 0xFF	; 255
+ 312:	ef 71       	andi	r30, 0x1F	; 31
         UART_TxTail = tmptail;
- 258:	e0 93 67 00 	sts	0x0067, r30
+ 314:	e0 93 6d 02 	sts	0x026D, r30
         /* get one byte from buffer and write it to UART */
         UART0_DATA = UART_TxBuf[tmptail];  /* start transmission */
- 25c:	f0 e0       	ldi	r31, 0x00	; 0
- 25e:	e7 57       	subi	r30, 0x77	; 119
- 260:	ff 4f       	sbci	r31, 0xFF	; 255
- 262:	80 81       	ld	r24, Z
- 264:	8c b9       	out	0x0c, r24	; 12
- 266:	01 c0       	rjmp	.+2      	; 0x26a <__vector_14+0x38>
+ 318:	f0 e0       	ldi	r31, 0x00	; 0
+ 31a:	e1 57       	subi	r30, 0x71	; 113
+ 31c:	fd 4f       	sbci	r31, 0xFD	; 253
+ 31e:	80 81       	ld	r24, Z
+ 320:	8c b9       	out	0x0c, r24	; 12
+ 322:	01 c0       	rjmp	.+2      	; 0x326 <__vector_14+0x38>
     }else{
         /* tx buffer empty, disable UDRE interrupt */
         UART0_CONTROL &= ~_BV(UART0_UDRIE);
- 268:	55 98       	cbi	0x0a, 5	; 10
+ 324:	55 98       	cbi	0x0a, 5	; 10
     }
 }
- 26a:	ff 91       	pop	r31
- 26c:	ef 91       	pop	r30
- 26e:	9f 91       	pop	r25
- 270:	8f 91       	pop	r24
- 272:	0f 90       	pop	r0
- 274:	0f be       	out	0x3f, r0	; 63
- 276:	0f 90       	pop	r0
- 278:	1f 90       	pop	r1
- 27a:	18 95       	reti
+ 326:	ff 91       	pop	r31
+ 328:	ef 91       	pop	r30
+ 32a:	9f 91       	pop	r25
+ 32c:	8f 91       	pop	r24
+ 32e:	0f 90       	pop	r0
+ 330:	0f be       	out	0x3f, r0	; 63
+ 332:	0f 90       	pop	r0
+ 334:	1f 90       	pop	r1
+ 336:	18 95       	reti
 
-0000027c <uart_init>:
+00000338 <uart_init>:
 Input:    baudrate using macro UART_BAUD_SELECT()
 Returns:  none
 **************************************************************************/
 void uart_init(unsigned int baudrate)
 {
     UART_TxHead = 0;
- 27c:	10 92 68 00 	sts	0x0068, r1
+ 338:	10 92 6e 02 	sts	0x026E, r1
     UART_TxTail = 0;
- 280:	10 92 67 00 	sts	0x0067, r1
+ 33c:	10 92 6d 02 	sts	0x026D, r1
     UART_RxHead = 0;
- 284:	10 92 66 00 	sts	0x0066, r1
+ 340:	10 92 6c 02 	sts	0x026C, r1
     UART_RxTail = 0;
- 288:	10 92 65 00 	sts	0x0065, r1
+ 344:	10 92 6b 02 	sts	0x026B, r1
     /* enable UART receiver and transmmitter and receive complete interrupt */
     UART0_CONTROL = _BV(RXCIE)|_BV(RXEN)|_BV(TXEN);
 
 #elif defined (ATMEGA_USART)
     /* Set baud rate */
     if ( baudrate & 0x8000 )
- 28c:	99 23       	and	r25, r25
- 28e:	1c f4       	brge	.+6      	; 0x296 <uart_init+0x1a>
+ 348:	99 23       	and	r25, r25
+ 34a:	1c f4       	brge	.+6      	; 0x352 <uart_init+0x1a>
     {
     	 UART0_STATUS = (1<<U2X);  //Enable 2x speed 
- 290:	22 e0       	ldi	r18, 0x02	; 2
- 292:	2b b9       	out	0x0b, r18	; 11
+ 34c:	22 e0       	ldi	r18, 0x02	; 2
+ 34e:	2b b9       	out	0x0b, r18	; 11
     	 baudrate &= ~0x8000;
- 294:	9f 77       	andi	r25, 0x7F	; 127
+ 350:	9f 77       	andi	r25, 0x7F	; 127
     }
     UBRRH = (unsigned char)(baudrate>>8);
- 296:	90 bd       	out	0x20, r25	; 32
+ 352:	90 bd       	out	0x20, r25	; 32
     UBRRL = (unsigned char) baudrate;
- 298:	89 b9       	out	0x09, r24	; 9
+ 354:	89 b9       	out	0x09, r24	; 9
    
     /* Enable USART receiver and transmitter and receive complete interrupt */
     UART0_CONTROL = _BV(RXCIE)|(1<<RXEN)|(1<<TXEN);
- 29a:	88 e9       	ldi	r24, 0x98	; 152
- 29c:	8a b9       	out	0x0a, r24	; 10
+ 356:	88 e9       	ldi	r24, 0x98	; 152
+ 358:	8a b9       	out	0x0a, r24	; 10
     
     /* Set frame format: asynchronous, 8data, no parity, 1stop bit */
     #ifdef URSEL
     UCSRC = (1<<URSEL)|(3<<UCSZ0);
- 29e:	86 e8       	ldi	r24, 0x86	; 134
- 2a0:	80 bd       	out	0x20, r24	; 32
- 2a2:	08 95       	ret
+ 35a:	86 e8       	ldi	r24, 0x86	; 134
+ 35c:	80 bd       	out	0x20, r24	; 32
+ 35e:	08 95       	ret
 
-000002a4 <uart_getc>:
-{    
-    unsigned char tmptail;
-    unsigned char data;
+00000360 <_ZN5w5100C1Ev>:
+ *  Author: Ajinkya
+ */ 
 
-
-    if ( UART_RxHead == UART_RxTail ) {
- 2a4:	90 91 66 00 	lds	r25, 0x0066
- 2a8:	80 91 65 00 	lds	r24, 0x0065
- 2ac:	98 17       	cp	r25, r24
- 2ae:	91 f0       	breq	.+36     	; 0x2d4 <uart_getc+0x30>
-        return UART_NO_DATA;   /* no data available */
-    }
-    
-    /* calculate /store buffer index */
-    tmptail = (UART_RxTail + 1) & UART_RX_BUFFER_MASK;
- 2b0:	e0 91 65 00 	lds	r30, 0x0065
- 2b4:	ef 5f       	subi	r30, 0xFF	; 255
- 2b6:	ef 71       	andi	r30, 0x1F	; 31
-    UART_RxTail = tmptail; 
- 2b8:	e0 93 65 00 	sts	0x0065, r30
-    
-    /* get data from receive buffer */
-    data = UART_RxBuf[tmptail];
- 2bc:	f0 e0       	ldi	r31, 0x00	; 0
- 2be:	e7 59       	subi	r30, 0x97	; 151
- 2c0:	ff 4f       	sbci	r31, 0xFF	; 255
- 2c2:	20 81       	ld	r18, Z
-    
-    return (UART_LastRxError << 8) + data;
- 2c4:	80 91 64 00 	lds	r24, 0x0064
- 2c8:	90 e0       	ldi	r25, 0x00	; 0
- 2ca:	98 2f       	mov	r25, r24
- 2cc:	88 27       	eor	r24, r24
- 2ce:	82 0f       	add	r24, r18
- 2d0:	91 1d       	adc	r25, r1
- 2d2:	08 95       	ret
-    unsigned char tmptail;
-    unsigned char data;
-
-
-    if ( UART_RxHead == UART_RxTail ) {
-        return UART_NO_DATA;   /* no data available */
- 2d4:	80 e0       	ldi	r24, 0x00	; 0
- 2d6:	91 e0       	ldi	r25, 0x01	; 1
-    /* get data from receive buffer */
-    data = UART_RxBuf[tmptail];
-    
-    return (UART_LastRxError << 8) + data;
-
-}/* uart_getc */
- 2d8:	08 95       	ret
-
-000002da <uart_putc>:
-void uart_putc(unsigned char data)
+//source : http://www.ermicro.com/blog/?p=1773
+#include "w5100.h"
+w5100::w5100()
+ 360:	cf 93       	push	r28
+ 362:	df 93       	push	r29
+ 364:	ec 01       	movw	r28, r24
+ 366:	86 e0       	ldi	r24, 0x06	; 6
+ 368:	e0 e6       	ldi	r30, 0x60	; 96
+ 36a:	f0 e0       	ldi	r31, 0x00	; 0
+ 36c:	de 01       	movw	r26, r28
+ 36e:	11 96       	adiw	r26, 0x01	; 1
+ 370:	01 90       	ld	r0, Z+
+ 372:	0d 92       	st	X+, r0
+ 374:	8a 95       	dec	r24
+ 376:	e1 f7       	brne	.-8      	; 0x370 <_ZN5w5100C1Ev+0x10>
+ 378:	3a e0       	ldi	r19, 0x0A	; 10
+ 37a:	3f 83       	std	Y+7, r19	; 0x07
+ 37c:	20 e1       	ldi	r18, 0x10	; 16
+ 37e:	28 87       	std	Y+8, r18	; 0x08
+ 380:	92 e1       	ldi	r25, 0x12	; 18
+ 382:	99 87       	std	Y+9, r25	; 0x09
+ 384:	81 e2       	ldi	r24, 0x21	; 33
+ 386:	8a 87       	std	Y+10, r24	; 0x0a
+ 388:	8f ef       	ldi	r24, 0xFF	; 255
+ 38a:	8b 87       	std	Y+11, r24	; 0x0b
+ 38c:	8c 87       	std	Y+12, r24	; 0x0c
+ 38e:	8d 87       	std	Y+13, r24	; 0x0d
+ 390:	1e 86       	std	Y+14, r1	; 0x0e
+ 392:	3f 87       	std	Y+15, r19	; 0x0f
+ 394:	28 8b       	std	Y+16, r18	; 0x10
+ 396:	99 8b       	std	Y+17, r25	; 0x11
+ 398:	8a ef       	ldi	r24, 0xFA	; 250
+ 39a:	8a 8b       	std	Y+18, r24	; 0x12
 {
-    unsigned char tmphead;
+	
+}
+ 39c:	df 91       	pop	r29
+ 39e:	cf 91       	pop	r28
+ 3a0:	08 95       	ret
 
-    
-    tmphead  = (UART_TxHead + 1) & UART_TX_BUFFER_MASK;
- 2da:	20 91 68 00 	lds	r18, 0x0068
- 2de:	2f 5f       	subi	r18, 0xFF	; 255
- 2e0:	2f 71       	andi	r18, 0x1F	; 31
-    
-    while ( tmphead == UART_TxTail ){
- 2e2:	90 91 67 00 	lds	r25, 0x0067
- 2e6:	29 17       	cp	r18, r25
- 2e8:	e1 f3       	breq	.-8      	; 0x2e2 <uart_putc+0x8>
-        ;/* wait for free space in buffer */
-    }
-    
-    UART_TxBuf[tmphead] = data;
- 2ea:	e2 2f       	mov	r30, r18
- 2ec:	f0 e0       	ldi	r31, 0x00	; 0
- 2ee:	e7 57       	subi	r30, 0x77	; 119
- 2f0:	ff 4f       	sbci	r31, 0xFF	; 255
- 2f2:	80 83       	st	Z, r24
-    UART_TxHead = tmphead;
- 2f4:	20 93 68 00 	sts	0x0068, r18
-
-    /* enable UDRE interrupt */
-    UART0_CONTROL    |= _BV(UART0_UDRIE);
- 2f8:	55 9a       	sbi	0x0a, 5	; 10
- 2fa:	08 95       	ret
-
-000002fc <uart_available>:
-Input:    None
-Returns:  Integer number of bytes in the receive buffer
-**************************************************************************/
-int uart_available(void)
+000003a2 <_ZN5w51008SPI_ReadEj>:
+	SPI_Write(TMSR,NET_MEMALLOC);
+}
+unsigned char w5100::SPI_Read(unsigned int addr)
 {
-        return (UART_RX_BUFFER_MASK + UART_RxHead - UART_RxTail) % UART_RX_BUFFER_MASK;
- 2fc:	80 91 66 00 	lds	r24, 0x0066
- 300:	20 91 65 00 	lds	r18, 0x0065
- 304:	90 e0       	ldi	r25, 0x00	; 0
- 306:	4f 96       	adiw	r24, 0x1f	; 31
- 308:	82 1b       	sub	r24, r18
- 30a:	91 09       	sbc	r25, r1
- 30c:	6f e1       	ldi	r22, 0x1F	; 31
- 30e:	70 e0       	ldi	r23, 0x00	; 0
- 310:	0e 94 a8 02 	call	0x550	; 0x550 <__divmodhi4>
-}/* uart_available */
- 314:	08 95       	ret
+	 // Activate the CS pin			//set it low
+	 SPI_PORT &= ~(1<<SPI_CS);
+ 3a2:	c4 98       	cbi	0x18, 4	; 24
 
-00000316 <__fixunssfsi>:
- 316:	70 d0       	rcall	.+224    	; 0x3f8 <__fp_splitA>
- 318:	88 f0       	brcs	.+34     	; 0x33c <__fixunssfsi+0x26>
- 31a:	9f 57       	subi	r25, 0x7F	; 127
- 31c:	90 f0       	brcs	.+36     	; 0x342 <__fixunssfsi+0x2c>
- 31e:	b9 2f       	mov	r27, r25
- 320:	99 27       	eor	r25, r25
- 322:	b7 51       	subi	r27, 0x17	; 23
- 324:	a0 f0       	brcs	.+40     	; 0x34e <__fixunssfsi+0x38>
- 326:	d1 f0       	breq	.+52     	; 0x35c <__fixunssfsi+0x46>
- 328:	66 0f       	add	r22, r22
- 32a:	77 1f       	adc	r23, r23
- 32c:	88 1f       	adc	r24, r24
- 32e:	99 1f       	adc	r25, r25
- 330:	1a f0       	brmi	.+6      	; 0x338 <__fixunssfsi+0x22>
- 332:	ba 95       	dec	r27
- 334:	c9 f7       	brne	.-14     	; 0x328 <__fixunssfsi+0x12>
- 336:	12 c0       	rjmp	.+36     	; 0x35c <__fixunssfsi+0x46>
- 338:	b1 30       	cpi	r27, 0x01	; 1
- 33a:	81 f0       	breq	.+32     	; 0x35c <__fixunssfsi+0x46>
- 33c:	77 d0       	rcall	.+238    	; 0x42c <__fp_zero>
- 33e:	b1 e0       	ldi	r27, 0x01	; 1
- 340:	08 95       	ret
- 342:	74 c0       	rjmp	.+232    	; 0x42c <__fp_zero>
- 344:	67 2f       	mov	r22, r23
- 346:	78 2f       	mov	r23, r24
- 348:	88 27       	eor	r24, r24
- 34a:	b8 5f       	subi	r27, 0xF8	; 248
- 34c:	39 f0       	breq	.+14     	; 0x35c <__fixunssfsi+0x46>
- 34e:	b9 3f       	cpi	r27, 0xF9	; 249
- 350:	cc f3       	brlt	.-14     	; 0x344 <__fixunssfsi+0x2e>
- 352:	86 95       	lsr	r24
- 354:	77 95       	ror	r23
- 356:	67 95       	ror	r22
- 358:	b3 95       	inc	r27
- 35a:	d9 f7       	brne	.-10     	; 0x352 <__fixunssfsi+0x3c>
- 35c:	3e f4       	brtc	.+14     	; 0x36c <__fixunssfsi+0x56>
- 35e:	90 95       	com	r25
- 360:	80 95       	com	r24
- 362:	70 95       	com	r23
- 364:	61 95       	neg	r22
- 366:	7f 4f       	sbci	r23, 0xFF	; 255
- 368:	8f 4f       	sbci	r24, 0xFF	; 255
- 36a:	9f 4f       	sbci	r25, 0xFF	; 255
- 36c:	08 95       	ret
+	 // Start Wiznet W5100 Read OpCode transmission
+	 SPDR = WIZNET_READ_OPCODE;
+ 3a4:	8f e0       	ldi	r24, 0x0F	; 15
+ 3a6:	8f b9       	out	0x0f, r24	; 15
 
-0000036e <__floatunsisf>:
- 36e:	e8 94       	clt
- 370:	09 c0       	rjmp	.+18     	; 0x384 <__floatsisf+0x12>
+	 // Wait for transmission complete
+	 while(!(SPSR & (1<<SPIF)));
+ 3a8:	77 9b       	sbis	0x0e, 7	; 14
+ 3aa:	fe cf       	rjmp	.-4      	; 0x3a8 <_ZN5w51008SPI_ReadEj+0x6>
 
-00000372 <__floatsisf>:
- 372:	97 fb       	bst	r25, 7
- 374:	3e f4       	brtc	.+14     	; 0x384 <__floatsisf+0x12>
- 376:	90 95       	com	r25
- 378:	80 95       	com	r24
- 37a:	70 95       	com	r23
- 37c:	61 95       	neg	r22
- 37e:	7f 4f       	sbci	r23, 0xFF	; 255
- 380:	8f 4f       	sbci	r24, 0xFF	; 255
- 382:	9f 4f       	sbci	r25, 0xFF	; 255
- 384:	99 23       	and	r25, r25
- 386:	a9 f0       	breq	.+42     	; 0x3b2 <__floatsisf+0x40>
- 388:	f9 2f       	mov	r31, r25
- 38a:	96 e9       	ldi	r25, 0x96	; 150
- 38c:	bb 27       	eor	r27, r27
- 38e:	93 95       	inc	r25
- 390:	f6 95       	lsr	r31
- 392:	87 95       	ror	r24
- 394:	77 95       	ror	r23
- 396:	67 95       	ror	r22
- 398:	b7 95       	ror	r27
- 39a:	f1 11       	cpse	r31, r1
- 39c:	f8 cf       	rjmp	.-16     	; 0x38e <__floatsisf+0x1c>
- 39e:	fa f4       	brpl	.+62     	; 0x3de <__floatsisf+0x6c>
- 3a0:	bb 0f       	add	r27, r27
- 3a2:	11 f4       	brne	.+4      	; 0x3a8 <__floatsisf+0x36>
- 3a4:	60 ff       	sbrs	r22, 0
- 3a6:	1b c0       	rjmp	.+54     	; 0x3de <__floatsisf+0x6c>
- 3a8:	6f 5f       	subi	r22, 0xFF	; 255
- 3aa:	7f 4f       	sbci	r23, 0xFF	; 255
- 3ac:	8f 4f       	sbci	r24, 0xFF	; 255
- 3ae:	9f 4f       	sbci	r25, 0xFF	; 255
- 3b0:	16 c0       	rjmp	.+44     	; 0x3de <__floatsisf+0x6c>
- 3b2:	88 23       	and	r24, r24
- 3b4:	11 f0       	breq	.+4      	; 0x3ba <__floatsisf+0x48>
- 3b6:	96 e9       	ldi	r25, 0x96	; 150
- 3b8:	11 c0       	rjmp	.+34     	; 0x3dc <__floatsisf+0x6a>
- 3ba:	77 23       	and	r23, r23
- 3bc:	21 f0       	breq	.+8      	; 0x3c6 <__floatsisf+0x54>
- 3be:	9e e8       	ldi	r25, 0x8E	; 142
- 3c0:	87 2f       	mov	r24, r23
- 3c2:	76 2f       	mov	r23, r22
- 3c4:	05 c0       	rjmp	.+10     	; 0x3d0 <__floatsisf+0x5e>
- 3c6:	66 23       	and	r22, r22
- 3c8:	71 f0       	breq	.+28     	; 0x3e6 <__floatsisf+0x74>
- 3ca:	96 e8       	ldi	r25, 0x86	; 134
- 3cc:	86 2f       	mov	r24, r22
- 3ce:	70 e0       	ldi	r23, 0x00	; 0
- 3d0:	60 e0       	ldi	r22, 0x00	; 0
- 3d2:	2a f0       	brmi	.+10     	; 0x3de <__floatsisf+0x6c>
- 3d4:	9a 95       	dec	r25
- 3d6:	66 0f       	add	r22, r22
- 3d8:	77 1f       	adc	r23, r23
- 3da:	88 1f       	adc	r24, r24
- 3dc:	da f7       	brpl	.-10     	; 0x3d4 <__floatsisf+0x62>
- 3de:	88 0f       	add	r24, r24
- 3e0:	96 95       	lsr	r25
- 3e2:	87 95       	ror	r24
- 3e4:	97 f9       	bld	r25, 7
- 3e6:	08 95       	ret
+	 // Start Wiznet W5100 Address High Bytes transmission
+	 SPDR = (addr & 0xFF00) >> 8;
+ 3ac:	7f b9       	out	0x0f, r23	; 15
 
-000003e8 <__fp_split3>:
- 3e8:	57 fd       	sbrc	r21, 7
- 3ea:	90 58       	subi	r25, 0x80	; 128
- 3ec:	44 0f       	add	r20, r20
- 3ee:	55 1f       	adc	r21, r21
- 3f0:	59 f0       	breq	.+22     	; 0x408 <__fp_splitA+0x10>
- 3f2:	5f 3f       	cpi	r21, 0xFF	; 255
- 3f4:	71 f0       	breq	.+28     	; 0x412 <__fp_splitA+0x1a>
- 3f6:	47 95       	ror	r20
+	 // Wait for transmission complete
+	 while(!(SPSR & (1<<SPIF)));
+ 3ae:	77 9b       	sbis	0x0e, 7	; 14
+ 3b0:	fe cf       	rjmp	.-4      	; 0x3ae <_ZN5w51008SPI_ReadEj+0xc>
 
-000003f8 <__fp_splitA>:
- 3f8:	88 0f       	add	r24, r24
- 3fa:	97 fb       	bst	r25, 7
- 3fc:	99 1f       	adc	r25, r25
- 3fe:	61 f0       	breq	.+24     	; 0x418 <__fp_splitA+0x20>
- 400:	9f 3f       	cpi	r25, 0xFF	; 255
- 402:	79 f0       	breq	.+30     	; 0x422 <__fp_splitA+0x2a>
- 404:	87 95       	ror	r24
- 406:	08 95       	ret
- 408:	12 16       	cp	r1, r18
- 40a:	13 06       	cpc	r1, r19
- 40c:	14 06       	cpc	r1, r20
- 40e:	55 1f       	adc	r21, r21
- 410:	f2 cf       	rjmp	.-28     	; 0x3f6 <__fp_split3+0xe>
- 412:	46 95       	lsr	r20
- 414:	f1 df       	rcall	.-30     	; 0x3f8 <__fp_splitA>
- 416:	08 c0       	rjmp	.+16     	; 0x428 <__fp_splitA+0x30>
- 418:	16 16       	cp	r1, r22
- 41a:	17 06       	cpc	r1, r23
- 41c:	18 06       	cpc	r1, r24
- 41e:	99 1f       	adc	r25, r25
- 420:	f1 cf       	rjmp	.-30     	; 0x404 <__fp_splitA+0xc>
- 422:	86 95       	lsr	r24
- 424:	71 05       	cpc	r23, r1
- 426:	61 05       	cpc	r22, r1
- 428:	08 94       	sec
- 42a:	08 95       	ret
+	 // Start Wiznet W5100 Address Low Bytes transmission
+	 SPDR = addr & 0x00FF;
+ 3b2:	6f b9       	out	0x0f, r22	; 15
 
-0000042c <__fp_zero>:
- 42c:	e8 94       	clt
+	 // Wait for transmission complete
+	 while(!(SPSR & (1<<SPIF)));
+ 3b4:	77 9b       	sbis	0x0e, 7	; 14
+ 3b6:	fe cf       	rjmp	.-4      	; 0x3b4 <_ZN5w51008SPI_ReadEj+0x12>
 
-0000042e <__fp_szero>:
- 42e:	bb 27       	eor	r27, r27
- 430:	66 27       	eor	r22, r22
- 432:	77 27       	eor	r23, r23
- 434:	cb 01       	movw	r24, r22
- 436:	97 f9       	bld	r25, 7
- 438:	08 95       	ret
+	 // Send Dummy transmission for reading the data
+	 SPDR = 0x00;
+ 3b8:	1f b8       	out	0x0f, r1	; 15
 
-0000043a <__mulsf3>:
- 43a:	0b d0       	rcall	.+22     	; 0x452 <__mulsf3x>
- 43c:	78 c0       	rjmp	.+240    	; 0x52e <__fp_round>
- 43e:	69 d0       	rcall	.+210    	; 0x512 <__fp_pscA>
- 440:	28 f0       	brcs	.+10     	; 0x44c <__mulsf3+0x12>
- 442:	6e d0       	rcall	.+220    	; 0x520 <__fp_pscB>
- 444:	18 f0       	brcs	.+6      	; 0x44c <__mulsf3+0x12>
- 446:	95 23       	and	r25, r21
- 448:	09 f0       	breq	.+2      	; 0x44c <__mulsf3+0x12>
- 44a:	5a c0       	rjmp	.+180    	; 0x500 <__fp_inf>
- 44c:	5f c0       	rjmp	.+190    	; 0x50c <__fp_nan>
- 44e:	11 24       	eor	r1, r1
- 450:	ee cf       	rjmp	.-36     	; 0x42e <__fp_szero>
+	 // Wait for transmission complete
+	 while(!(SPSR & (1<<SPIF)));
+ 3ba:	77 9b       	sbis	0x0e, 7	; 14
+ 3bc:	fe cf       	rjmp	.-4      	; 0x3ba <_ZN5w51008SPI_ReadEj+0x18>
 
-00000452 <__mulsf3x>:
- 452:	ca df       	rcall	.-108    	; 0x3e8 <__fp_split3>
- 454:	a0 f3       	brcs	.-24     	; 0x43e <__mulsf3+0x4>
+	 // deactivate CS pin //make it high
+	 SPI_PORT |= (1<<SPI_CS);
+ 3be:	c4 9a       	sbi	0x18, 4	; 24
 
-00000456 <__mulsf3_pse>:
- 456:	95 9f       	mul	r25, r21
- 458:	d1 f3       	breq	.-12     	; 0x44e <__mulsf3+0x14>
- 45a:	95 0f       	add	r25, r21
- 45c:	50 e0       	ldi	r21, 0x00	; 0
- 45e:	55 1f       	adc	r21, r21
- 460:	62 9f       	mul	r22, r18
- 462:	f0 01       	movw	r30, r0
- 464:	72 9f       	mul	r23, r18
- 466:	bb 27       	eor	r27, r27
- 468:	f0 0d       	add	r31, r0
- 46a:	b1 1d       	adc	r27, r1
- 46c:	63 9f       	mul	r22, r19
- 46e:	aa 27       	eor	r26, r26
- 470:	f0 0d       	add	r31, r0
- 472:	b1 1d       	adc	r27, r1
- 474:	aa 1f       	adc	r26, r26
- 476:	64 9f       	mul	r22, r20
- 478:	66 27       	eor	r22, r22
- 47a:	b0 0d       	add	r27, r0
- 47c:	a1 1d       	adc	r26, r1
- 47e:	66 1f       	adc	r22, r22
- 480:	82 9f       	mul	r24, r18
- 482:	22 27       	eor	r18, r18
- 484:	b0 0d       	add	r27, r0
- 486:	a1 1d       	adc	r26, r1
- 488:	62 1f       	adc	r22, r18
- 48a:	73 9f       	mul	r23, r19
- 48c:	b0 0d       	add	r27, r0
- 48e:	a1 1d       	adc	r26, r1
- 490:	62 1f       	adc	r22, r18
- 492:	83 9f       	mul	r24, r19
- 494:	a0 0d       	add	r26, r0
- 496:	61 1d       	adc	r22, r1
- 498:	22 1f       	adc	r18, r18
- 49a:	74 9f       	mul	r23, r20
- 49c:	33 27       	eor	r19, r19
- 49e:	a0 0d       	add	r26, r0
- 4a0:	61 1d       	adc	r22, r1
- 4a2:	23 1f       	adc	r18, r19
- 4a4:	84 9f       	mul	r24, r20
- 4a6:	60 0d       	add	r22, r0
- 4a8:	21 1d       	adc	r18, r1
- 4aa:	82 2f       	mov	r24, r18
- 4ac:	76 2f       	mov	r23, r22
- 4ae:	6a 2f       	mov	r22, r26
- 4b0:	11 24       	eor	r1, r1
- 4b2:	9f 57       	subi	r25, 0x7F	; 127
- 4b4:	50 40       	sbci	r21, 0x00	; 0
- 4b6:	8a f0       	brmi	.+34     	; 0x4da <__mulsf3_pse+0x84>
- 4b8:	e1 f0       	breq	.+56     	; 0x4f2 <__mulsf3_pse+0x9c>
- 4ba:	88 23       	and	r24, r24
- 4bc:	4a f0       	brmi	.+18     	; 0x4d0 <__mulsf3_pse+0x7a>
- 4be:	ee 0f       	add	r30, r30
- 4c0:	ff 1f       	adc	r31, r31
- 4c2:	bb 1f       	adc	r27, r27
- 4c4:	66 1f       	adc	r22, r22
- 4c6:	77 1f       	adc	r23, r23
- 4c8:	88 1f       	adc	r24, r24
- 4ca:	91 50       	subi	r25, 0x01	; 1
- 4cc:	50 40       	sbci	r21, 0x00	; 0
- 4ce:	a9 f7       	brne	.-22     	; 0x4ba <__mulsf3_pse+0x64>
- 4d0:	9e 3f       	cpi	r25, 0xFE	; 254
- 4d2:	51 05       	cpc	r21, r1
- 4d4:	70 f0       	brcs	.+28     	; 0x4f2 <__mulsf3_pse+0x9c>
- 4d6:	14 c0       	rjmp	.+40     	; 0x500 <__fp_inf>
- 4d8:	aa cf       	rjmp	.-172    	; 0x42e <__fp_szero>
- 4da:	5f 3f       	cpi	r21, 0xFF	; 255
- 4dc:	ec f3       	brlt	.-6      	; 0x4d8 <__mulsf3_pse+0x82>
- 4de:	98 3e       	cpi	r25, 0xE8	; 232
- 4e0:	dc f3       	brlt	.-10     	; 0x4d8 <__mulsf3_pse+0x82>
- 4e2:	86 95       	lsr	r24
- 4e4:	77 95       	ror	r23
- 4e6:	67 95       	ror	r22
- 4e8:	b7 95       	ror	r27
- 4ea:	f7 95       	ror	r31
- 4ec:	e7 95       	ror	r30
- 4ee:	9f 5f       	subi	r25, 0xFF	; 255
- 4f0:	c1 f7       	brne	.-16     	; 0x4e2 <__mulsf3_pse+0x8c>
- 4f2:	fe 2b       	or	r31, r30
- 4f4:	88 0f       	add	r24, r24
- 4f6:	91 1d       	adc	r25, r1
- 4f8:	96 95       	lsr	r25
- 4fa:	87 95       	ror	r24
- 4fc:	97 f9       	bld	r25, 7
- 4fe:	08 95       	ret
+	 return(SPDR);
+ 3c0:	8f b1       	in	r24, 0x0f	; 15
+}
+ 3c2:	08 95       	ret
 
-00000500 <__fp_inf>:
- 500:	97 f9       	bld	r25, 7
- 502:	9f 67       	ori	r25, 0x7F	; 127
- 504:	80 e8       	ldi	r24, 0x80	; 128
- 506:	70 e0       	ldi	r23, 0x00	; 0
- 508:	60 e0       	ldi	r22, 0x00	; 0
- 50a:	08 95       	ret
+000003c4 <_ZN5w51009SPI_WriteEjh>:
 
-0000050c <__fp_nan>:
- 50c:	9f ef       	ldi	r25, 0xFF	; 255
- 50e:	80 ec       	ldi	r24, 0xC0	; 192
+void w5100::SPI_Write(unsigned int addr, unsigned char data)
+{
+	 // Activate the CS pin
+	 SPI_PORT &= ~(1<<SPI_CS);
+ 3c4:	c4 98       	cbi	0x18, 4	; 24
+
+	 // Start Wiznet W5100 Write OpCode transmission
+	 SPDR = WIZNET_WRITE_OPCODE;
+ 3c6:	80 ef       	ldi	r24, 0xF0	; 240
+ 3c8:	8f b9       	out	0x0f, r24	; 15
+
+	 // Wait for transmission complete
+	 while(!(SPSR & (1<<SPIF)));
+ 3ca:	77 9b       	sbis	0x0e, 7	; 14
+ 3cc:	fe cf       	rjmp	.-4      	; 0x3ca <_ZN5w51009SPI_WriteEjh+0x6>
+
+	 // Start Wiznet W5100 Address High Bytes transmission
+	 SPDR = (addr & 0xFF00) >> 8;
+ 3ce:	7f b9       	out	0x0f, r23	; 15
+
+	 // Wait for transmission complete
+	 while(!(SPSR & (1<<SPIF)));
+ 3d0:	77 9b       	sbis	0x0e, 7	; 14
+ 3d2:	fe cf       	rjmp	.-4      	; 0x3d0 <_ZN5w51009SPI_WriteEjh+0xc>
+
+	 // Start Wiznet W5100 Address Low Bytes transmission
+	 SPDR = addr & 0x00FF;
+ 3d4:	6f b9       	out	0x0f, r22	; 15
+
+	 // Wait for transmission complete
+	 while(!(SPSR & (1<<SPIF)));
+ 3d6:	77 9b       	sbis	0x0e, 7	; 14
+ 3d8:	fe cf       	rjmp	.-4      	; 0x3d6 <_ZN5w51009SPI_WriteEjh+0x12>
+
+	 // Start Data transmission
+	 SPDR = data;
+ 3da:	4f b9       	out	0x0f, r20	; 15
+
+	 // Wait for transmission complete
+	 while(!(SPSR & (1<<SPIF)));
+ 3dc:	77 9b       	sbis	0x0e, 7	; 14
+ 3de:	fe cf       	rjmp	.-4      	; 0x3dc <_ZN5w51009SPI_WriteEjh+0x18>
+
+	 // CS pin is not active
+	 SPI_PORT |= (1<<SPI_CS);
+ 3e0:	c4 9a       	sbi	0x18, 4	; 24
+ 3e2:	08 95       	ret
+
+000003e4 <_ZN5w51004initEv>:
+{
+	for(int i=0;i<4;i++)
+		ip_addr[i]=ip[i];
+}
+void w5100::init(void)
+{
+ 3e4:	cf 93       	push	r28
+ 3e6:	df 93       	push	r29
+ 3e8:	ec 01       	movw	r28, r24
+	// Ethernet Setup
+	
+
+	// Setting the Wiznet W5100 Mode Register: 0x0000
+	SPI_Write(MR,0x80);            // MR = 0b10000000;
+ 3ea:	40 e8       	ldi	r20, 0x80	; 128
+ 3ec:	60 e0       	ldi	r22, 0x00	; 0
+ 3ee:	70 e0       	ldi	r23, 0x00	; 0
+ 3f0:	0e 94 e2 01 	call	0x3c4	; 0x3c4 <_ZN5w51009SPI_WriteEjh>
+
+	// Setting the Wiznet W5100 Gateway Address (GAR): 0x0001 to 0x0004
+	SPI_Write(GAR + 0,gtw_addr[0]);
+ 3f4:	4f 85       	ldd	r20, Y+15	; 0x0f
+ 3f6:	61 e0       	ldi	r22, 0x01	; 1
+ 3f8:	70 e0       	ldi	r23, 0x00	; 0
+ 3fa:	ce 01       	movw	r24, r28
+ 3fc:	0e 94 e2 01 	call	0x3c4	; 0x3c4 <_ZN5w51009SPI_WriteEjh>
+	SPI_Write(GAR + 1,gtw_addr[1]);
+ 400:	48 89       	ldd	r20, Y+16	; 0x10
+ 402:	62 e0       	ldi	r22, 0x02	; 2
+ 404:	70 e0       	ldi	r23, 0x00	; 0
+ 406:	ce 01       	movw	r24, r28
+ 408:	0e 94 e2 01 	call	0x3c4	; 0x3c4 <_ZN5w51009SPI_WriteEjh>
+	SPI_Write(GAR + 2,gtw_addr[2]);
+ 40c:	49 89       	ldd	r20, Y+17	; 0x11
+ 40e:	63 e0       	ldi	r22, 0x03	; 3
+ 410:	70 e0       	ldi	r23, 0x00	; 0
+ 412:	ce 01       	movw	r24, r28
+ 414:	0e 94 e2 01 	call	0x3c4	; 0x3c4 <_ZN5w51009SPI_WriteEjh>
+	SPI_Write(GAR + 3,gtw_addr[3]);
+ 418:	4a 89       	ldd	r20, Y+18	; 0x12
+ 41a:	64 e0       	ldi	r22, 0x04	; 4
+ 41c:	70 e0       	ldi	r23, 0x00	; 0
+ 41e:	ce 01       	movw	r24, r28
+ 420:	0e 94 e2 01 	call	0x3c4	; 0x3c4 <_ZN5w51009SPI_WriteEjh>
+
+	// Setting the Wiznet W5100 Source Address Register (SAR): 0x0009 to 0x000E
+	SPI_Write(SAR + 0,mac_addr[0]);
+ 424:	49 81       	ldd	r20, Y+1	; 0x01
+ 426:	69 e0       	ldi	r22, 0x09	; 9
+ 428:	70 e0       	ldi	r23, 0x00	; 0
+ 42a:	ce 01       	movw	r24, r28
+ 42c:	0e 94 e2 01 	call	0x3c4	; 0x3c4 <_ZN5w51009SPI_WriteEjh>
+	SPI_Write(SAR + 1,mac_addr[1]);
+ 430:	4a 81       	ldd	r20, Y+2	; 0x02
+ 432:	6a e0       	ldi	r22, 0x0A	; 10
+ 434:	70 e0       	ldi	r23, 0x00	; 0
+ 436:	ce 01       	movw	r24, r28
+ 438:	0e 94 e2 01 	call	0x3c4	; 0x3c4 <_ZN5w51009SPI_WriteEjh>
+	SPI_Write(SAR + 2,mac_addr[2]);
+ 43c:	4b 81       	ldd	r20, Y+3	; 0x03
+ 43e:	6b e0       	ldi	r22, 0x0B	; 11
+ 440:	70 e0       	ldi	r23, 0x00	; 0
+ 442:	ce 01       	movw	r24, r28
+ 444:	0e 94 e2 01 	call	0x3c4	; 0x3c4 <_ZN5w51009SPI_WriteEjh>
+	SPI_Write(SAR + 3,mac_addr[3]);
+ 448:	4c 81       	ldd	r20, Y+4	; 0x04
+ 44a:	6c e0       	ldi	r22, 0x0C	; 12
+ 44c:	70 e0       	ldi	r23, 0x00	; 0
+ 44e:	ce 01       	movw	r24, r28
+ 450:	0e 94 e2 01 	call	0x3c4	; 0x3c4 <_ZN5w51009SPI_WriteEjh>
+	SPI_Write(SAR + 4,mac_addr[4]);
+ 454:	4d 81       	ldd	r20, Y+5	; 0x05
+ 456:	6d e0       	ldi	r22, 0x0D	; 13
+ 458:	70 e0       	ldi	r23, 0x00	; 0
+ 45a:	ce 01       	movw	r24, r28
+ 45c:	0e 94 e2 01 	call	0x3c4	; 0x3c4 <_ZN5w51009SPI_WriteEjh>
+	SPI_Write(SAR + 5,mac_addr[5]);
+ 460:	4e 81       	ldd	r20, Y+6	; 0x06
+ 462:	6e e0       	ldi	r22, 0x0E	; 14
+ 464:	70 e0       	ldi	r23, 0x00	; 0
+ 466:	ce 01       	movw	r24, r28
+ 468:	0e 94 e2 01 	call	0x3c4	; 0x3c4 <_ZN5w51009SPI_WriteEjh>
+
+	// Setting the Wiznet W5100 Sub Mask Address (SUBR): 0x0005 to 0x0008
+	SPI_Write(SUBR + 0,sub_mask[0]);
+ 46c:	4b 85       	ldd	r20, Y+11	; 0x0b
+ 46e:	65 e0       	ldi	r22, 0x05	; 5
+ 470:	70 e0       	ldi	r23, 0x00	; 0
+ 472:	ce 01       	movw	r24, r28
+ 474:	0e 94 e2 01 	call	0x3c4	; 0x3c4 <_ZN5w51009SPI_WriteEjh>
+	SPI_Write(SUBR + 1,sub_mask[1]);
+ 478:	4c 85       	ldd	r20, Y+12	; 0x0c
+ 47a:	66 e0       	ldi	r22, 0x06	; 6
+ 47c:	70 e0       	ldi	r23, 0x00	; 0
+ 47e:	ce 01       	movw	r24, r28
+ 480:	0e 94 e2 01 	call	0x3c4	; 0x3c4 <_ZN5w51009SPI_WriteEjh>
+	SPI_Write(SUBR + 2,sub_mask[2]);
+ 484:	4d 85       	ldd	r20, Y+13	; 0x0d
+ 486:	67 e0       	ldi	r22, 0x07	; 7
+ 488:	70 e0       	ldi	r23, 0x00	; 0
+ 48a:	ce 01       	movw	r24, r28
+ 48c:	0e 94 e2 01 	call	0x3c4	; 0x3c4 <_ZN5w51009SPI_WriteEjh>
+	SPI_Write(SUBR + 3,sub_mask[3]);
+ 490:	4e 85       	ldd	r20, Y+14	; 0x0e
+ 492:	68 e0       	ldi	r22, 0x08	; 8
+ 494:	70 e0       	ldi	r23, 0x00	; 0
+ 496:	ce 01       	movw	r24, r28
+ 498:	0e 94 e2 01 	call	0x3c4	; 0x3c4 <_ZN5w51009SPI_WriteEjh>
+
+	// Setting the Wiznet W5100 IP Address (SIPR): 0x000F to 0x0012
+	SPI_Write(SIPR + 0,ip_addr[0]);
+ 49c:	4f 81       	ldd	r20, Y+7	; 0x07
+ 49e:	6f e0       	ldi	r22, 0x0F	; 15
+ 4a0:	70 e0       	ldi	r23, 0x00	; 0
+ 4a2:	ce 01       	movw	r24, r28
+ 4a4:	0e 94 e2 01 	call	0x3c4	; 0x3c4 <_ZN5w51009SPI_WriteEjh>
+	SPI_Write(SIPR + 1,ip_addr[1]);
+ 4a8:	48 85       	ldd	r20, Y+8	; 0x08
+ 4aa:	60 e1       	ldi	r22, 0x10	; 16
+ 4ac:	70 e0       	ldi	r23, 0x00	; 0
+ 4ae:	ce 01       	movw	r24, r28
+ 4b0:	0e 94 e2 01 	call	0x3c4	; 0x3c4 <_ZN5w51009SPI_WriteEjh>
+	SPI_Write(SIPR + 2,ip_addr[2]);
+ 4b4:	49 85       	ldd	r20, Y+9	; 0x09
+ 4b6:	61 e1       	ldi	r22, 0x11	; 17
+ 4b8:	70 e0       	ldi	r23, 0x00	; 0
+ 4ba:	ce 01       	movw	r24, r28
+ 4bc:	0e 94 e2 01 	call	0x3c4	; 0x3c4 <_ZN5w51009SPI_WriteEjh>
+	SPI_Write(SIPR + 3,ip_addr[3]);
+ 4c0:	4a 85       	ldd	r20, Y+10	; 0x0a
+ 4c2:	62 e1       	ldi	r22, 0x12	; 18
+ 4c4:	70 e0       	ldi	r23, 0x00	; 0
+ 4c6:	ce 01       	movw	r24, r28
+ 4c8:	0e 94 e2 01 	call	0x3c4	; 0x3c4 <_ZN5w51009SPI_WriteEjh>
+
+	// Setting the Wiznet W5100 RX and TX Memory Size (2KB),
+	SPI_Write(RMSR,NET_MEMALLOC);
+ 4cc:	45 e0       	ldi	r20, 0x05	; 5
+ 4ce:	6a e1       	ldi	r22, 0x1A	; 26
+ 4d0:	70 e0       	ldi	r23, 0x00	; 0
+ 4d2:	ce 01       	movw	r24, r28
+ 4d4:	0e 94 e2 01 	call	0x3c4	; 0x3c4 <_ZN5w51009SPI_WriteEjh>
+	SPI_Write(TMSR,NET_MEMALLOC);
+ 4d8:	45 e0       	ldi	r20, 0x05	; 5
+ 4da:	6b e1       	ldi	r22, 0x1B	; 27
+ 4dc:	70 e0       	ldi	r23, 0x00	; 0
+ 4de:	ce 01       	movw	r24, r28
+ 4e0:	0e 94 e2 01 	call	0x3c4	; 0x3c4 <_ZN5w51009SPI_WriteEjh>
+}
+ 4e4:	df 91       	pop	r29
+ 4e6:	cf 91       	pop	r28
+ 4e8:	08 95       	ret
+
+000004ea <_ZN5w51005closeEh>:
+	 // CS pin is not active
+	 SPI_PORT |= (1<<SPI_CS);
+}
+
+void w5100::close(unsigned char sock)
+{
+ 4ea:	cf 93       	push	r28
+ 4ec:	df 93       	push	r29
+ 4ee:	ec 01       	movw	r28, r24
+	
+	if (sock != 0) return;
+ 4f0:	61 11       	cpse	r22, r1
+ 4f2:	0c c0       	rjmp	.+24     	; 0x50c <_ZN5w51005closeEh+0x22>
+
+	// Send Close Command
+	SPI_Write(S0_CR,CR_CLOSE);
+ 4f4:	40 e1       	ldi	r20, 0x10	; 16
+ 4f6:	61 e0       	ldi	r22, 0x01	; 1
+ 4f8:	74 e0       	ldi	r23, 0x04	; 4
+ 4fa:	0e 94 e2 01 	call	0x3c4	; 0x3c4 <_ZN5w51009SPI_WriteEjh>
+
+	// Waiting until the S0_CR is clear
+	while(SPI_Read(S0_CR));
+ 4fe:	61 e0       	ldi	r22, 0x01	; 1
+ 500:	74 e0       	ldi	r23, 0x04	; 4
+ 502:	ce 01       	movw	r24, r28
+ 504:	0e 94 d1 01 	call	0x3a2	; 0x3a2 <_ZN5w51008SPI_ReadEj>
+ 508:	81 11       	cpse	r24, r1
+ 50a:	f9 cf       	rjmp	.-14     	; 0x4fe <_ZN5w51005closeEh+0x14>
+}
+ 50c:	df 91       	pop	r29
+ 50e:	cf 91       	pop	r28
  510:	08 95       	ret
 
-00000512 <__fp_pscA>:
- 512:	00 24       	eor	r0, r0
- 514:	0a 94       	dec	r0
- 516:	16 16       	cp	r1, r22
- 518:	17 06       	cpc	r1, r23
- 51a:	18 06       	cpc	r1, r24
- 51c:	09 06       	cpc	r0, r25
- 51e:	08 95       	ret
+00000512 <_ZN5w510010disconnectEh>:
+void w5100::disconnect(unsigned char sock)
+{
+ 512:	cf 93       	push	r28
+ 514:	df 93       	push	r29
+ 516:	ec 01       	movw	r28, r24
+	if (sock != 0) return;
+ 518:	61 11       	cpse	r22, r1
+ 51a:	0c c0       	rjmp	.+24     	; 0x534 <_ZN5w510010disconnectEh+0x22>
 
-00000520 <__fp_pscB>:
- 520:	00 24       	eor	r0, r0
- 522:	0a 94       	dec	r0
- 524:	12 16       	cp	r1, r18
- 526:	13 06       	cpc	r1, r19
- 528:	14 06       	cpc	r1, r20
- 52a:	05 06       	cpc	r0, r21
- 52c:	08 95       	ret
+	// Send Disconnect Command
+	SPI_Write(S0_CR,CR_DISCON);
+ 51c:	48 e0       	ldi	r20, 0x08	; 8
+ 51e:	61 e0       	ldi	r22, 0x01	; 1
+ 520:	74 e0       	ldi	r23, 0x04	; 4
+ 522:	0e 94 e2 01 	call	0x3c4	; 0x3c4 <_ZN5w51009SPI_WriteEjh>
 
-0000052e <__fp_round>:
- 52e:	09 2e       	mov	r0, r25
- 530:	03 94       	inc	r0
- 532:	00 0c       	add	r0, r0
- 534:	11 f4       	brne	.+4      	; 0x53a <__fp_round+0xc>
- 536:	88 23       	and	r24, r24
- 538:	52 f0       	brmi	.+20     	; 0x54e <__fp_round+0x20>
- 53a:	bb 0f       	add	r27, r27
- 53c:	40 f4       	brcc	.+16     	; 0x54e <__fp_round+0x20>
- 53e:	bf 2b       	or	r27, r31
- 540:	11 f4       	brne	.+4      	; 0x546 <__fp_round+0x18>
- 542:	60 ff       	sbrs	r22, 0
- 544:	04 c0       	rjmp	.+8      	; 0x54e <__fp_round+0x20>
- 546:	6f 5f       	subi	r22, 0xFF	; 255
- 548:	7f 4f       	sbci	r23, 0xFF	; 255
- 54a:	8f 4f       	sbci	r24, 0xFF	; 255
- 54c:	9f 4f       	sbci	r25, 0xFF	; 255
- 54e:	08 95       	ret
+	// Wait for Disconecting Process
+	while(SPI_Read(S0_CR));
+ 526:	61 e0       	ldi	r22, 0x01	; 1
+ 528:	74 e0       	ldi	r23, 0x04	; 4
+ 52a:	ce 01       	movw	r24, r28
+ 52c:	0e 94 d1 01 	call	0x3a2	; 0x3a2 <_ZN5w51008SPI_ReadEj>
+ 530:	81 11       	cpse	r24, r1
+ 532:	f9 cf       	rjmp	.-14     	; 0x526 <_ZN5w510010disconnectEh+0x14>
+}
+ 534:	df 91       	pop	r29
+ 536:	cf 91       	pop	r28
+ 538:	08 95       	ret
 
-00000550 <__divmodhi4>:
- 550:	97 fb       	bst	r25, 7
- 552:	07 2e       	mov	r0, r23
- 554:	16 f4       	brtc	.+4      	; 0x55a <__divmodhi4+0xa>
- 556:	00 94       	com	r0
- 558:	07 d0       	rcall	.+14     	; 0x568 <__divmodhi4_neg1>
- 55a:	77 fd       	sbrc	r23, 7
- 55c:	09 d0       	rcall	.+18     	; 0x570 <__divmodhi4_neg2>
- 55e:	0e 94 bc 02 	call	0x578	; 0x578 <__udivmodhi4>
- 562:	07 fc       	sbrc	r0, 7
- 564:	05 d0       	rcall	.+10     	; 0x570 <__divmodhi4_neg2>
- 566:	3e f4       	brtc	.+14     	; 0x576 <__divmodhi4_exit>
+0000053a <_ZN5w51006socketEhhj>:
+//returns 1 if successful else 0
+unsigned char w5100::socket(unsigned char sock, unsigned char eth_protocol, unsigned int tcp_port)
+{
+ 53a:	ff 92       	push	r15
+ 53c:	0f 93       	push	r16
+ 53e:	1f 93       	push	r17
+ 540:	cf 93       	push	r28
+ 542:	df 93       	push	r29
+ 544:	ec 01       	movw	r28, r24
+ 546:	f4 2e       	mov	r15, r20
+ 548:	12 2f       	mov	r17, r18
+ 54a:	03 2f       	mov	r16, r19
+	 uint8_t retval=0;
 
-00000568 <__divmodhi4_neg1>:
- 568:	90 95       	com	r25
- 56a:	81 95       	neg	r24
- 56c:	9f 4f       	sbci	r25, 0xFF	; 255
- 56e:	08 95       	ret
+	 if (sock != 0) return retval;
+ 54c:	61 11       	cpse	r22, r1
+ 54e:	36 c0       	rjmp	.+108    	; 0x5bc <_ZN5w51006socketEhhj+0x82>
 
-00000570 <__divmodhi4_neg2>:
- 570:	70 95       	com	r23
- 572:	61 95       	neg	r22
- 574:	7f 4f       	sbci	r23, 0xFF	; 255
+	 // Make sure we close the socket first
+	 if (SPI_Read(S0_SR) == SOCK_CLOSED) {
+ 550:	63 e0       	ldi	r22, 0x03	; 3
+ 552:	74 e0       	ldi	r23, 0x04	; 4
+ 554:	0e 94 d1 01 	call	0x3a2	; 0x3a2 <_ZN5w51008SPI_ReadEj>
+ 558:	81 11       	cpse	r24, r1
+ 55a:	04 c0       	rjmp	.+8      	; 0x564 <_ZN5w51006socketEhhj+0x2a>
+		 close(sock);
+ 55c:	60 e0       	ldi	r22, 0x00	; 0
+ 55e:	ce 01       	movw	r24, r28
+ 560:	0e 94 75 02 	call	0x4ea	; 0x4ea <_ZN5w51005closeEh>
+	 }
 
-00000576 <__divmodhi4_exit>:
- 576:	08 95       	ret
+	 // Assigned Socket 0 Mode Register
+	 SPI_Write(S0_MR,eth_protocol);
+ 564:	4f 2d       	mov	r20, r15
+ 566:	60 e0       	ldi	r22, 0x00	; 0
+ 568:	74 e0       	ldi	r23, 0x04	; 4
+ 56a:	ce 01       	movw	r24, r28
+ 56c:	0e 94 e2 01 	call	0x3c4	; 0x3c4 <_ZN5w51009SPI_WriteEjh>
 
-00000578 <__udivmodhi4>:
- 578:	aa 1b       	sub	r26, r26
- 57a:	bb 1b       	sub	r27, r27
- 57c:	51 e1       	ldi	r21, 0x11	; 17
- 57e:	07 c0       	rjmp	.+14     	; 0x58e <__udivmodhi4_ep>
+	 // Now open the Socket 0
+	 SPI_Write(S0_PORT,((tcp_port & 0xFF00) >> 8 ));
+ 570:	40 2f       	mov	r20, r16
+ 572:	64 e0       	ldi	r22, 0x04	; 4
+ 574:	74 e0       	ldi	r23, 0x04	; 4
+ 576:	ce 01       	movw	r24, r28
+ 578:	0e 94 e2 01 	call	0x3c4	; 0x3c4 <_ZN5w51009SPI_WriteEjh>
+	 SPI_Write(S0_PORT + 1,(tcp_port & 0x00FF));
+ 57c:	41 2f       	mov	r20, r17
+ 57e:	65 e0       	ldi	r22, 0x05	; 5
+ 580:	74 e0       	ldi	r23, 0x04	; 4
+ 582:	ce 01       	movw	r24, r28
+ 584:	0e 94 e2 01 	call	0x3c4	; 0x3c4 <_ZN5w51009SPI_WriteEjh>
+	 SPI_Write(S0_CR,CR_OPEN);                   // Open Socket
+ 588:	41 e0       	ldi	r20, 0x01	; 1
+ 58a:	61 e0       	ldi	r22, 0x01	; 1
+ 58c:	74 e0       	ldi	r23, 0x04	; 4
+ 58e:	ce 01       	movw	r24, r28
+ 590:	0e 94 e2 01 	call	0x3c4	; 0x3c4 <_ZN5w51009SPI_WriteEjh>
 
-00000580 <__udivmodhi4_loop>:
- 580:	aa 1f       	adc	r26, r26
- 582:	bb 1f       	adc	r27, r27
- 584:	a6 17       	cp	r26, r22
- 586:	b7 07       	cpc	r27, r23
- 588:	10 f0       	brcs	.+4      	; 0x58e <__udivmodhi4_ep>
- 58a:	a6 1b       	sub	r26, r22
- 58c:	b7 0b       	sbc	r27, r23
+	 // Wait for Opening Process
+	 while(SPI_Read(S0_CR));
+ 594:	61 e0       	ldi	r22, 0x01	; 1
+ 596:	74 e0       	ldi	r23, 0x04	; 4
+ 598:	ce 01       	movw	r24, r28
+ 59a:	0e 94 d1 01 	call	0x3a2	; 0x3a2 <_ZN5w51008SPI_ReadEj>
+ 59e:	81 11       	cpse	r24, r1
+ 5a0:	f9 cf       	rjmp	.-14     	; 0x594 <_ZN5w51006socketEhhj+0x5a>
 
-0000058e <__udivmodhi4_ep>:
- 58e:	88 1f       	adc	r24, r24
- 590:	99 1f       	adc	r25, r25
- 592:	5a 95       	dec	r21
- 594:	a9 f7       	brne	.-22     	; 0x580 <__udivmodhi4_loop>
- 596:	80 95       	com	r24
- 598:	90 95       	com	r25
- 59a:	bc 01       	movw	r22, r24
- 59c:	cd 01       	movw	r24, r26
- 59e:	08 95       	ret
+	 // Check for Init Status
+	 if (SPI_Read(S0_SR) == SOCK_INIT)
+ 5a2:	63 e0       	ldi	r22, 0x03	; 3
+ 5a4:	74 e0       	ldi	r23, 0x04	; 4
+ 5a6:	ce 01       	movw	r24, r28
+ 5a8:	0e 94 d1 01 	call	0x3a2	; 0x3a2 <_ZN5w51008SPI_ReadEj>
+ 5ac:	83 31       	cpi	r24, 0x13	; 19
+ 5ae:	41 f0       	breq	.+16     	; 0x5c0 <_ZN5w51006socketEhhj+0x86>
+	 retval=1;
+	 else
+	 close(sock);
+ 5b0:	60 e0       	ldi	r22, 0x00	; 0
+ 5b2:	ce 01       	movw	r24, r28
+ 5b4:	0e 94 75 02 	call	0x4ea	; 0x4ea <_ZN5w51005closeEh>
+	while(SPI_Read(S0_CR));
+}
+//returns 1 if successful else 0
+unsigned char w5100::socket(unsigned char sock, unsigned char eth_protocol, unsigned int tcp_port)
+{
+	 uint8_t retval=0;
+ 5b8:	80 e0       	ldi	r24, 0x00	; 0
+ 5ba:	03 c0       	rjmp	.+6      	; 0x5c2 <_ZN5w51006socketEhhj+0x88>
 
-000005a0 <_exit>:
- 5a0:	f8 94       	cli
+	 if (sock != 0) return retval;
+ 5bc:	80 e0       	ldi	r24, 0x00	; 0
+ 5be:	01 c0       	rjmp	.+2      	; 0x5c2 <_ZN5w51006socketEhhj+0x88>
+	 // Wait for Opening Process
+	 while(SPI_Read(S0_CR));
 
-000005a2 <__stop_program>:
- 5a2:	ff cf       	rjmp	.-2      	; 0x5a2 <__stop_program>
+	 // Check for Init Status
+	 if (SPI_Read(S0_SR) == SOCK_INIT)
+	 retval=1;
+ 5c0:	81 e0       	ldi	r24, 0x01	; 1
+	 else
+	 close(sock);
+
+	 return retval;
+}
+ 5c2:	df 91       	pop	r29
+ 5c4:	cf 91       	pop	r28
+ 5c6:	1f 91       	pop	r17
+ 5c8:	0f 91       	pop	r16
+ 5ca:	ff 90       	pop	r15
+ 5cc:	08 95       	ret
+
+000005ce <_ZN5w51006listenEh>:
+// return 1 if successful else 0
+unsigned  char w5100::listen(unsigned char sock)
+{
+ 5ce:	cf 93       	push	r28
+ 5d0:	df 93       	push	r29
+ 5d2:	ec 01       	movw	r28, r24
+	 uint8_t retval = 0;
+
+	 if (sock != 0) return retval;
+ 5d4:	61 11       	cpse	r22, r1
+ 5d6:	20 c0       	rjmp	.+64     	; 0x618 <_ZN5w51006listenEh+0x4a>
+
+	 if (SPI_Read(S0_SR) == SOCK_INIT) {
+ 5d8:	63 e0       	ldi	r22, 0x03	; 3
+ 5da:	74 e0       	ldi	r23, 0x04	; 4
+ 5dc:	0e 94 d1 01 	call	0x3a2	; 0x3a2 <_ZN5w51008SPI_ReadEj>
+ 5e0:	83 31       	cpi	r24, 0x13	; 19
+ 5e2:	e1 f4       	brne	.+56     	; 0x61c <_ZN5w51006listenEh+0x4e>
+		 // Send the LISTEN Command
+		 SPI_Write(S0_CR,CR_LISTEN);
+ 5e4:	42 e0       	ldi	r20, 0x02	; 2
+ 5e6:	61 e0       	ldi	r22, 0x01	; 1
+ 5e8:	74 e0       	ldi	r23, 0x04	; 4
+ 5ea:	ce 01       	movw	r24, r28
+ 5ec:	0e 94 e2 01 	call	0x3c4	; 0x3c4 <_ZN5w51009SPI_WriteEjh>
+
+		 // Wait for Listening Process
+		 while(SPI_Read(S0_CR));
+ 5f0:	61 e0       	ldi	r22, 0x01	; 1
+ 5f2:	74 e0       	ldi	r23, 0x04	; 4
+ 5f4:	ce 01       	movw	r24, r28
+ 5f6:	0e 94 d1 01 	call	0x3a2	; 0x3a2 <_ZN5w51008SPI_ReadEj>
+ 5fa:	81 11       	cpse	r24, r1
+ 5fc:	f9 cf       	rjmp	.-14     	; 0x5f0 <_ZN5w51006listenEh+0x22>
+
+		 // Check for Listen Status
+		 if (SPI_Read(S0_SR) == SOCK_LISTEN)
+ 5fe:	63 e0       	ldi	r22, 0x03	; 3
+ 600:	74 e0       	ldi	r23, 0x04	; 4
+ 602:	ce 01       	movw	r24, r28
+ 604:	0e 94 d1 01 	call	0x3a2	; 0x3a2 <_ZN5w51008SPI_ReadEj>
+ 608:	84 31       	cpi	r24, 0x14	; 20
+ 60a:	51 f0       	breq	.+20     	; 0x620 <_ZN5w51006listenEh+0x52>
+		 retval=1;
+		 else
+		 close(sock);
+ 60c:	60 e0       	ldi	r22, 0x00	; 0
+ 60e:	ce 01       	movw	r24, r28
+ 610:	0e 94 75 02 	call	0x4ea	; 0x4ea <_ZN5w51005closeEh>
+	 return retval;
+}
+// return 1 if successful else 0
+unsigned  char w5100::listen(unsigned char sock)
+{
+	 uint8_t retval = 0;
+ 614:	80 e0       	ldi	r24, 0x00	; 0
+ 616:	05 c0       	rjmp	.+10     	; 0x622 <_ZN5w51006listenEh+0x54>
+
+	 if (sock != 0) return retval;
+ 618:	80 e0       	ldi	r24, 0x00	; 0
+ 61a:	03 c0       	rjmp	.+6      	; 0x622 <_ZN5w51006listenEh+0x54>
+	 return retval;
+}
+// return 1 if successful else 0
+unsigned  char w5100::listen(unsigned char sock)
+{
+	 uint8_t retval = 0;
+ 61c:	80 e0       	ldi	r24, 0x00	; 0
+ 61e:	01 c0       	rjmp	.+2      	; 0x622 <_ZN5w51006listenEh+0x54>
+		 // Wait for Listening Process
+		 while(SPI_Read(S0_CR));
+
+		 // Check for Listen Status
+		 if (SPI_Read(S0_SR) == SOCK_LISTEN)
+		 retval=1;
+ 620:	81 e0       	ldi	r24, 0x01	; 1
+		 else
+		 close(sock);
+	 }
+	 return retval;
+}
+ 622:	df 91       	pop	r29
+ 624:	cf 91       	pop	r28
+ 626:	08 95       	ret
+
+00000628 <_ZN5w51004sendEhPKhj>:
+
+unsigned int w5100::send(unsigned char sock , const unsigned char * buf, unsigned int buflen)
+{
+ 628:	8f 92       	push	r8
+ 62a:	9f 92       	push	r9
+ 62c:	af 92       	push	r10
+ 62e:	bf 92       	push	r11
+ 630:	cf 92       	push	r12
+ 632:	df 92       	push	r13
+ 634:	ef 92       	push	r14
+ 636:	ff 92       	push	r15
+ 638:	0f 93       	push	r16
+ 63a:	1f 93       	push	r17
+ 63c:	cf 93       	push	r28
+ 63e:	df 93       	push	r29
+ 640:	ec 01       	movw	r28, r24
+ 642:	5a 01       	movw	r10, r20
+ 644:	69 01       	movw	r12, r18
+	uint16_t ptr,offaddr,realaddr,txsize,timeout;
+
+	if (buflen <= 0 || sock != 0) return 0;
+ 646:	21 15       	cp	r18, r1
+ 648:	31 05       	cpc	r19, r1
+ 64a:	09 f4       	brne	.+2      	; 0x64e <_ZN5w51004sendEhPKhj+0x26>
+ 64c:	6b c0       	rjmp	.+214    	; 0x724 <_ZN5w51004sendEhPKhj+0xfc>
+ 64e:	61 11       	cpse	r22, r1
+ 650:	6c c0       	rjmp	.+216    	; 0x72a <_ZN5w51004sendEhPKhj+0x102>
+//	#if _DEBUG_MODE
+//	printf("Send Size: %d\n",buflen);
+//	#endif
+
+	// Make sure the TX Free Size Register is available
+	txsize=SPI_Read(SO_TX_FSR);
+ 652:	60 e2       	ldi	r22, 0x20	; 32
+ 654:	74 e0       	ldi	r23, 0x04	; 4
+ 656:	0e 94 d1 01 	call	0x3a2	; 0x3a2 <_ZN5w51008SPI_ReadEj>
+ 65a:	08 2f       	mov	r16, r24
+ 65c:	10 e0       	ldi	r17, 0x00	; 0
+	txsize=(((txsize & 0x00FF) << 8 ) + SPI_Read(SO_TX_FSR + 1));
+ 65e:	10 2f       	mov	r17, r16
+ 660:	00 27       	eor	r16, r16
+ 662:	61 e2       	ldi	r22, 0x21	; 33
+ 664:	74 e0       	ldi	r23, 0x04	; 4
+ 666:	ce 01       	movw	r24, r28
+ 668:	0e 94 d1 01 	call	0x3a2	; 0x3a2 <_ZN5w51008SPI_ReadEj>
+ 66c:	08 0f       	add	r16, r24
+ 66e:	11 1d       	adc	r17, r1
+//	#if _DEBUG_MODE
+//	printf("TX Free Size: %d\n",txsize);
+//	#endif
+
+	timeout=0;
+	while (txsize < buflen) {
+ 670:	0c 15       	cp	r16, r12
+ 672:	1d 05       	cpc	r17, r13
+ 674:	08 f4       	brcc	.+2      	; 0x678 <_ZN5w51004sendEhPKhj+0x50>
+ 676:	72 c0       	rjmp	.+228    	; 0x75c <_ZN5w51004sendEhPKhj+0x134>
+ 678:	5e c0       	rjmp	.+188    	; 0x736 <_ZN5w51004sendEhPKhj+0x10e>
+ 67a:	8f ec       	ldi	r24, 0xCF	; 207
+ 67c:	97 e0       	ldi	r25, 0x07	; 7
+ 67e:	01 97       	sbiw	r24, 0x01	; 1
+ 680:	f1 f7       	brne	.-4      	; 0x67e <_ZN5w51004sendEhPKhj+0x56>
+ 682:	00 c0       	rjmp	.+0      	; 0x684 <_ZN5w51004sendEhPKhj+0x5c>
+ 684:	00 00       	nop
+		_delay_ms(1);
+
+		txsize=SPI_Read(SO_TX_FSR);
+ 686:	60 e2       	ldi	r22, 0x20	; 32
+ 688:	74 e0       	ldi	r23, 0x04	; 4
+ 68a:	ce 01       	movw	r24, r28
+ 68c:	0e 94 d1 01 	call	0x3a2	; 0x3a2 <_ZN5w51008SPI_ReadEj>
+ 690:	e8 2e       	mov	r14, r24
+ 692:	f1 2c       	mov	r15, r1
+		txsize=(((txsize & 0x00FF) << 8 ) + SPI_Read(SO_TX_FSR + 1));
+ 694:	fe 2c       	mov	r15, r14
+ 696:	ee 24       	eor	r14, r14
+ 698:	61 e2       	ldi	r22, 0x21	; 33
+ 69a:	74 e0       	ldi	r23, 0x04	; 4
+ 69c:	ce 01       	movw	r24, r28
+ 69e:	0e 94 d1 01 	call	0x3a2	; 0x3a2 <_ZN5w51008SPI_ReadEj>
+ 6a2:	f7 01       	movw	r30, r14
+ 6a4:	e8 0f       	add	r30, r24
+ 6a6:	f1 1d       	adc	r31, r1
+ 6a8:	cf 01       	movw	r24, r30
+ 6aa:	01 50       	subi	r16, 0x01	; 1
+ 6ac:	11 09       	sbc	r17, r1
+
+		// Timeout for approx 1000 ms
+		if (timeout++ > 1000) {
+ 6ae:	01 15       	cp	r16, r1
+ 6b0:	11 05       	cpc	r17, r1
+ 6b2:	39 f4       	brne	.+14     	; 0x6c2 <_ZN5w51004sendEhPKhj+0x9a>
+//			#if _DEBUG_MODE
+//			printf("TX Free Size Error!\n");
+//			#endif
+			// Disconnect the connection
+			disconnect(sock);
+ 6b4:	60 e0       	ldi	r22, 0x00	; 0
+ 6b6:	ce 01       	movw	r24, r28
+ 6b8:	0e 94 89 02 	call	0x512	; 0x512 <_ZN5w510010disconnectEh>
+			return 0;
+ 6bc:	80 e0       	ldi	r24, 0x00	; 0
+ 6be:	90 e0       	ldi	r25, 0x00	; 0
+ 6c0:	68 c0       	rjmp	.+208    	; 0x792 <_ZN5w51004sendEhPKhj+0x16a>
+//	#if _DEBUG_MODE
+//	printf("TX Free Size: %d\n",txsize);
+//	#endif
+
+	timeout=0;
+	while (txsize < buflen) {
+ 6c2:	8c 15       	cp	r24, r12
+ 6c4:	9d 05       	cpc	r25, r13
+ 6c6:	c8 f2       	brcs	.-78     	; 0x67a <_ZN5w51004sendEhPKhj+0x52>
+ 6c8:	36 c0       	rjmp	.+108    	; 0x736 <_ZN5w51004sendEhPKhj+0x10e>
+//	#if _DEBUG_MODE
+//	printf("TX Buffer: %x\n",offaddr);
+//	#endif
+
+	while(buflen) {
+		buflen--;
+ 6ca:	01 50       	subi	r16, 0x01	; 1
+ 6cc:	11 09       	sbc	r17, r1
+		// Calculate the real W5100 physical Tx Buffer Address
+		realaddr = TXBUFADDR + (offaddr & TX_BUF_MASK);
+ 6ce:	b4 01       	movw	r22, r8
+ 6d0:	77 70       	andi	r23, 0x07	; 7
+ 6d2:	70 5c       	subi	r23, 0xC0	; 192
+
+		// Copy the application data to the W5100 Tx Buffer
+		SPI_Write(realaddr,*buf);
+ 6d4:	f5 01       	movw	r30, r10
+ 6d6:	41 91       	ld	r20, Z+
+ 6d8:	5f 01       	movw	r10, r30
+ 6da:	ce 01       	movw	r24, r28
+ 6dc:	0e 94 e2 01 	call	0x3c4	; 0x3c4 <_ZN5w51009SPI_WriteEjh>
+		offaddr++;
+ 6e0:	ff ef       	ldi	r31, 0xFF	; 255
+ 6e2:	8f 1a       	sub	r8, r31
+ 6e4:	9f 0a       	sbc	r9, r31
+	offaddr = (((ptr & 0x00FF) << 8 ) + SPI_Read(S0_TX_WR + 1));
+//	#if _DEBUG_MODE
+//	printf("TX Buffer: %x\n",offaddr);
+//	#endif
+
+	while(buflen) {
+ 6e6:	01 15       	cp	r16, r1
+ 6e8:	11 05       	cpc	r17, r1
+ 6ea:	79 f7       	brne	.-34     	; 0x6ca <_ZN5w51004sendEhPKhj+0xa2>
+ 6ec:	ce 0c       	add	r12, r14
+ 6ee:	df 1c       	adc	r13, r15
+		offaddr++;
+		buf++;
+	}
+
+	// Increase the S0_TX_WR value, so it point to the next transmit
+	SPI_Write(S0_TX_WR,(offaddr & 0xFF00) >> 8 );
+ 6f0:	4d 2d       	mov	r20, r13
+ 6f2:	64 e2       	ldi	r22, 0x24	; 36
+ 6f4:	74 e0       	ldi	r23, 0x04	; 4
+ 6f6:	ce 01       	movw	r24, r28
+ 6f8:	0e 94 e2 01 	call	0x3c4	; 0x3c4 <_ZN5w51009SPI_WriteEjh>
+	SPI_Write(S0_TX_WR + 1,(offaddr & 0x00FF));
+ 6fc:	4c 2d       	mov	r20, r12
+ 6fe:	65 e2       	ldi	r22, 0x25	; 37
+ 700:	74 e0       	ldi	r23, 0x04	; 4
+ 702:	ce 01       	movw	r24, r28
+ 704:	0e 94 e2 01 	call	0x3c4	; 0x3c4 <_ZN5w51009SPI_WriteEjh>
+
+	// Now Send the SEND command
+	SPI_Write(S0_CR,CR_SEND);
+ 708:	40 e2       	ldi	r20, 0x20	; 32
+ 70a:	61 e0       	ldi	r22, 0x01	; 1
+ 70c:	74 e0       	ldi	r23, 0x04	; 4
+ 70e:	ce 01       	movw	r24, r28
+ 710:	0e 94 e2 01 	call	0x3c4	; 0x3c4 <_ZN5w51009SPI_WriteEjh>
+
+	// Wait for Sending Process
+	while(SPI_Read(S0_CR));
+ 714:	61 e0       	ldi	r22, 0x01	; 1
+ 716:	74 e0       	ldi	r23, 0x04	; 4
+ 718:	ce 01       	movw	r24, r28
+ 71a:	0e 94 d1 01 	call	0x3a2	; 0x3a2 <_ZN5w51008SPI_ReadEj>
+ 71e:	81 11       	cpse	r24, r1
+ 720:	f9 cf       	rjmp	.-14     	; 0x714 <_ZN5w51004sendEhPKhj+0xec>
+ 722:	06 c0       	rjmp	.+12     	; 0x730 <_ZN5w51004sendEhPKhj+0x108>
+
+unsigned int w5100::send(unsigned char sock , const unsigned char * buf, unsigned int buflen)
+{
+	uint16_t ptr,offaddr,realaddr,txsize,timeout;
+
+	if (buflen <= 0 || sock != 0) return 0;
+ 724:	80 e0       	ldi	r24, 0x00	; 0
+ 726:	90 e0       	ldi	r25, 0x00	; 0
+ 728:	34 c0       	rjmp	.+104    	; 0x792 <_ZN5w51004sendEhPKhj+0x16a>
+ 72a:	80 e0       	ldi	r24, 0x00	; 0
+ 72c:	90 e0       	ldi	r25, 0x00	; 0
+ 72e:	31 c0       	rjmp	.+98     	; 0x792 <_ZN5w51004sendEhPKhj+0x16a>
+	SPI_Write(S0_CR,CR_SEND);
+
+	// Wait for Sending Process
+	while(SPI_Read(S0_CR));
+
+	return 1;
+ 730:	81 e0       	ldi	r24, 0x01	; 1
+ 732:	90 e0       	ldi	r25, 0x00	; 0
+ 734:	2e c0       	rjmp	.+92     	; 0x792 <_ZN5w51004sendEhPKhj+0x16a>
+			return 0;
+		}
+	}
+
+	// Read the Tx Write Pointer
+	ptr = SPI_Read(S0_TX_WR);
+ 736:	64 e2       	ldi	r22, 0x24	; 36
+ 738:	74 e0       	ldi	r23, 0x04	; 4
+ 73a:	ce 01       	movw	r24, r28
+ 73c:	0e 94 d1 01 	call	0x3a2	; 0x3a2 <_ZN5w51008SPI_ReadEj>
+ 740:	e8 2e       	mov	r14, r24
+	offaddr = (((ptr & 0x00FF) << 8 ) + SPI_Read(S0_TX_WR + 1));
+ 742:	65 e2       	ldi	r22, 0x25	; 37
+ 744:	74 e0       	ldi	r23, 0x04	; 4
+ 746:	ce 01       	movw	r24, r28
+ 748:	0e 94 d1 01 	call	0x3a2	; 0x3a2 <_ZN5w51008SPI_ReadEj>
+			return 0;
+		}
+	}
+
+	// Read the Tx Write Pointer
+	ptr = SPI_Read(S0_TX_WR);
+ 74c:	f1 2c       	mov	r15, r1
+	offaddr = (((ptr & 0x00FF) << 8 ) + SPI_Read(S0_TX_WR + 1));
+ 74e:	fe 2c       	mov	r15, r14
+ 750:	ee 24       	eor	r14, r14
+ 752:	e8 0e       	add	r14, r24
+ 754:	f1 1c       	adc	r15, r1
+ 756:	47 01       	movw	r8, r14
+ 758:	86 01       	movw	r16, r12
+ 75a:	b7 cf       	rjmp	.-146    	; 0x6ca <_ZN5w51004sendEhPKhj+0xa2>
+ 75c:	8f ec       	ldi	r24, 0xCF	; 207
+ 75e:	97 e0       	ldi	r25, 0x07	; 7
+ 760:	01 97       	sbiw	r24, 0x01	; 1
+ 762:	f1 f7       	brne	.-4      	; 0x760 <_ZN5w51004sendEhPKhj+0x138>
+ 764:	00 c0       	rjmp	.+0      	; 0x766 <_ZN5w51004sendEhPKhj+0x13e>
+ 766:	00 00       	nop
+
+	timeout=0;
+	while (txsize < buflen) {
+		_delay_ms(1);
+
+		txsize=SPI_Read(SO_TX_FSR);
+ 768:	60 e2       	ldi	r22, 0x20	; 32
+ 76a:	74 e0       	ldi	r23, 0x04	; 4
+ 76c:	ce 01       	movw	r24, r28
+ 76e:	0e 94 d1 01 	call	0x3a2	; 0x3a2 <_ZN5w51008SPI_ReadEj>
+ 772:	08 2f       	mov	r16, r24
+ 774:	10 e0       	ldi	r17, 0x00	; 0
+		txsize=(((txsize & 0x00FF) << 8 ) + SPI_Read(SO_TX_FSR + 1));
+ 776:	10 2f       	mov	r17, r16
+ 778:	00 27       	eor	r16, r16
+ 77a:	61 e2       	ldi	r22, 0x21	; 33
+ 77c:	74 e0       	ldi	r23, 0x04	; 4
+ 77e:	ce 01       	movw	r24, r28
+ 780:	0e 94 d1 01 	call	0x3a2	; 0x3a2 <_ZN5w51008SPI_ReadEj>
+ 784:	f8 01       	movw	r30, r16
+ 786:	e8 0f       	add	r30, r24
+ 788:	f1 1d       	adc	r31, r1
+ 78a:	cf 01       	movw	r24, r30
+ 78c:	09 ee       	ldi	r16, 0xE9	; 233
+ 78e:	13 e0       	ldi	r17, 0x03	; 3
+ 790:	98 cf       	rjmp	.-208    	; 0x6c2 <_ZN5w51004sendEhPKhj+0x9a>
+
+	// Wait for Sending Process
+	while(SPI_Read(S0_CR));
+
+	return 1;
+}
+ 792:	df 91       	pop	r29
+ 794:	cf 91       	pop	r28
+ 796:	1f 91       	pop	r17
+ 798:	0f 91       	pop	r16
+ 79a:	ff 90       	pop	r15
+ 79c:	ef 90       	pop	r14
+ 79e:	df 90       	pop	r13
+ 7a0:	cf 90       	pop	r12
+ 7a2:	bf 90       	pop	r11
+ 7a4:	af 90       	pop	r10
+ 7a6:	9f 90       	pop	r9
+ 7a8:	8f 90       	pop	r8
+ 7aa:	08 95       	ret
+
+000007ac <_ZN5w51004recvEhPhj>:
+
+unsigned int w5100::recv(unsigned char sock,unsigned char * buf, unsigned int buflen)
+{
+ 7ac:	6f 92       	push	r6
+ 7ae:	7f 92       	push	r7
+ 7b0:	8f 92       	push	r8
+ 7b2:	9f 92       	push	r9
+ 7b4:	af 92       	push	r10
+ 7b6:	bf 92       	push	r11
+ 7b8:	cf 92       	push	r12
+ 7ba:	df 92       	push	r13
+ 7bc:	ef 92       	push	r14
+ 7be:	ff 92       	push	r15
+ 7c0:	0f 93       	push	r16
+ 7c2:	1f 93       	push	r17
+ 7c4:	cf 93       	push	r28
+ 7c6:	df 93       	push	r29
+ 7c8:	6c 01       	movw	r12, r24
+ 7ca:	4a 01       	movw	r8, r20
+ 7cc:	59 01       	movw	r10, r18
+	uint16_t ptr,offaddr,realaddr;
+
+	if (buflen <= 0 || sock != 0) return 1;
+ 7ce:	21 15       	cp	r18, r1
+ 7d0:	31 05       	cpc	r19, r1
+ 7d2:	09 f4       	brne	.+2      	; 0x7d6 <_ZN5w51004recvEhPhj+0x2a>
+ 7d4:	4c c0       	rjmp	.+152    	; 0x86e <__stack+0xf>
+ 7d6:	61 11       	cpse	r22, r1
+ 7d8:	4a c0       	rjmp	.+148    	; 0x86e <__stack+0xf>
+
+	// If the request size > MAX_BUF,just truncate it
+	if (buflen > MAX_BUF)
+ 7da:	21 30       	cpi	r18, 0x01	; 1
+ 7dc:	82 e0       	ldi	r24, 0x02	; 2
+ 7de:	38 07       	cpc	r19, r24
+ 7e0:	60 f5       	brcc	.+88     	; 0x83a <_ZN5w51004recvEhPhj+0x8e>
+ 7e2:	31 c0       	rjmp	.+98     	; 0x846 <_ZN5w51004recvEhPhj+0x9a>
+//	#if _DEBUG_MODE
+//	printf("RX Buffer: %x\n",offaddr);
+//	#endif
+
+	while(buflen) {
+		buflen--;
+ 7e4:	21 97       	sbiw	r28, 0x01	; 1
+		realaddr=RXBUFADDR + (offaddr & RX_BUF_MASK);
+ 7e6:	b8 01       	movw	r22, r16
+ 7e8:	77 70       	andi	r23, 0x07	; 7
+ 7ea:	70 5a       	subi	r23, 0xA0	; 160
+		*buf = SPI_Read(realaddr);
+ 7ec:	c6 01       	movw	r24, r12
+ 7ee:	0e 94 d1 01 	call	0x3a2	; 0x3a2 <_ZN5w51008SPI_ReadEj>
+ 7f2:	f7 01       	movw	r30, r14
+ 7f4:	81 93       	st	Z+, r24
+ 7f6:	7f 01       	movw	r14, r30
+		offaddr++;
+ 7f8:	0f 5f       	subi	r16, 0xFF	; 255
+ 7fa:	1f 4f       	sbci	r17, 0xFF	; 255
+	offaddr = (((ptr & 0x00FF) << 8 ) + SPI_Read(S0_RX_RD + 1));
+//	#if _DEBUG_MODE
+//	printf("RX Buffer: %x\n",offaddr);
+//	#endif
+
+	while(buflen) {
+ 7fc:	20 97       	sbiw	r28, 0x00	; 0
+ 7fe:	91 f7       	brne	.-28     	; 0x7e4 <_ZN5w51004recvEhPhj+0x38>
+ 800:	6a 0c       	add	r6, r10
+ 802:	7b 1c       	adc	r7, r11
+		realaddr=RXBUFADDR + (offaddr & RX_BUF_MASK);
+		*buf = SPI_Read(realaddr);
+		offaddr++;
+		buf++;
+	}
+	*buf='\0';        // String terminated character
+ 804:	f4 01       	movw	r30, r8
+ 806:	ea 0d       	add	r30, r10
+ 808:	fb 1d       	adc	r31, r11
+ 80a:	10 82       	st	Z, r1
+
+	// Increase the S0_RX_RD value, so it point to the next receive
+	SPI_Write(S0_RX_RD,(offaddr & 0xFF00) >> 8 );
+ 80c:	47 2d       	mov	r20, r7
+ 80e:	68 e2       	ldi	r22, 0x28	; 40
+ 810:	74 e0       	ldi	r23, 0x04	; 4
+ 812:	c6 01       	movw	r24, r12
+ 814:	0e 94 e2 01 	call	0x3c4	; 0x3c4 <_ZN5w51009SPI_WriteEjh>
+	SPI_Write(S0_RX_RD + 1,(offaddr & 0x00FF));
+ 818:	46 2d       	mov	r20, r6
+ 81a:	69 e2       	ldi	r22, 0x29	; 41
+ 81c:	74 e0       	ldi	r23, 0x04	; 4
+ 81e:	c6 01       	movw	r24, r12
+ 820:	0e 94 e2 01 	call	0x3c4	; 0x3c4 <_ZN5w51009SPI_WriteEjh>
+
+	// Now Send the RECV command
+	SPI_Write(S0_CR,CR_RECV);
+ 824:	40 e4       	ldi	r20, 0x40	; 64
+ 826:	61 e0       	ldi	r22, 0x01	; 1
+ 828:	74 e0       	ldi	r23, 0x04	; 4
+ 82a:	c6 01       	movw	r24, r12
+ 82c:	0e 94 e2 01 	call	0x3c4	; 0x3c4 <_ZN5w51009SPI_WriteEjh>
+	#else
+		//round up by default
+		__ticks_dc = (uint32_t)(ceil(fabs(__tmp)));
+	#endif
+
+	__builtin_avr_delay_cycles(__ticks_dc);
+ 830:	fd e0       	ldi	r31, 0x0D	; 13
+ 832:	fa 95       	dec	r31
+ 834:	f1 f7       	brne	.-4      	; 0x832 <_ZN5w51004recvEhPhj+0x86>
+ 836:	00 00       	nop
+	_delay_us(5);    // Wait for Receive Process
+
+	return 1;
+ 838:	1a c0       	rjmp	.+52     	; 0x86e <__stack+0xf>
+
+	if (buflen <= 0 || sock != 0) return 1;
+
+	// If the request size > MAX_BUF,just truncate it
+	if (buflen > MAX_BUF)
+	buflen=MAX_BUF - 2;
+ 83a:	0f 2e       	mov	r0, r31
+ 83c:	fe ef       	ldi	r31, 0xFE	; 254
+ 83e:	af 2e       	mov	r10, r31
+ 840:	bb 24       	eor	r11, r11
+ 842:	b3 94       	inc	r11
+ 844:	f0 2d       	mov	r31, r0
+
+	// Read the Rx Read Pointer
+	ptr = SPI_Read(S0_RX_RD);
+ 846:	68 e2       	ldi	r22, 0x28	; 40
+ 848:	74 e0       	ldi	r23, 0x04	; 4
+ 84a:	c6 01       	movw	r24, r12
+ 84c:	0e 94 d1 01 	call	0x3a2	; 0x3a2 <_ZN5w51008SPI_ReadEj>
+ 850:	68 2e       	mov	r6, r24
+	offaddr = (((ptr & 0x00FF) << 8 ) + SPI_Read(S0_RX_RD + 1));
+ 852:	69 e2       	ldi	r22, 0x29	; 41
+ 854:	74 e0       	ldi	r23, 0x04	; 4
+ 856:	c6 01       	movw	r24, r12
+ 858:	0e 94 d1 01 	call	0x3a2	; 0x3a2 <_ZN5w51008SPI_ReadEj>
+	// If the request size > MAX_BUF,just truncate it
+	if (buflen > MAX_BUF)
+	buflen=MAX_BUF - 2;
+
+	// Read the Rx Read Pointer
+	ptr = SPI_Read(S0_RX_RD);
+ 85c:	71 2c       	mov	r7, r1
+	offaddr = (((ptr & 0x00FF) << 8 ) + SPI_Read(S0_RX_RD + 1));
+ 85e:	76 2c       	mov	r7, r6
+ 860:	66 24       	eor	r6, r6
+ 862:	68 0e       	add	r6, r24
+ 864:	71 1c       	adc	r7, r1
+ 866:	83 01       	movw	r16, r6
+ 868:	e5 01       	movw	r28, r10
+ 86a:	74 01       	movw	r14, r8
+ 86c:	bb cf       	rjmp	.-138    	; 0x7e4 <_ZN5w51004recvEhPhj+0x38>
+	// Now Send the RECV command
+	SPI_Write(S0_CR,CR_RECV);
+	_delay_us(5);    // Wait for Receive Process
+
+	return 1;
+}
+ 86e:	81 e0       	ldi	r24, 0x01	; 1
+ 870:	90 e0       	ldi	r25, 0x00	; 0
+ 872:	df 91       	pop	r29
+ 874:	cf 91       	pop	r28
+ 876:	1f 91       	pop	r17
+ 878:	0f 91       	pop	r16
+ 87a:	ff 90       	pop	r15
+ 87c:	ef 90       	pop	r14
+ 87e:	df 90       	pop	r13
+ 880:	cf 90       	pop	r12
+ 882:	bf 90       	pop	r11
+ 884:	af 90       	pop	r10
+ 886:	9f 90       	pop	r9
+ 888:	8f 90       	pop	r8
+ 88a:	7f 90       	pop	r7
+ 88c:	6f 90       	pop	r6
+ 88e:	08 95       	ret
+
+00000890 <_ZN5w51009recv_sizeEv>:
+
+unsigned int w5100::recv_size(void)
+{
+ 890:	1f 93       	push	r17
+ 892:	cf 93       	push	r28
+ 894:	df 93       	push	r29
+ 896:	ec 01       	movw	r28, r24
+	 return ((SPI_Read(S0_RX_RSR) & 0x00FF) << 8 ) + SPI_Read(S0_RX_RSR + 1);
+ 898:	66 e2       	ldi	r22, 0x26	; 38
+ 89a:	74 e0       	ldi	r23, 0x04	; 4
+ 89c:	0e 94 d1 01 	call	0x3a2	; 0x3a2 <_ZN5w51008SPI_ReadEj>
+ 8a0:	18 2f       	mov	r17, r24
+ 8a2:	67 e2       	ldi	r22, 0x27	; 39
+ 8a4:	74 e0       	ldi	r23, 0x04	; 4
+ 8a6:	ce 01       	movw	r24, r28
+ 8a8:	0e 94 d1 01 	call	0x3a2	; 0x3a2 <_ZN5w51008SPI_ReadEj>
+ 8ac:	21 2f       	mov	r18, r17
+ 8ae:	30 e0       	ldi	r19, 0x00	; 0
+ 8b0:	32 2f       	mov	r19, r18
+ 8b2:	22 27       	eor	r18, r18
+}
+ 8b4:	a9 01       	movw	r20, r18
+ 8b6:	48 0f       	add	r20, r24
+ 8b8:	51 1d       	adc	r21, r1
+ 8ba:	ca 01       	movw	r24, r20
+ 8bc:	df 91       	pop	r29
+ 8be:	cf 91       	pop	r28
+ 8c0:	1f 91       	pop	r17
+ 8c2:	08 95       	ret
+
+000008c4 <_ZN5w51009getStatusEv>:
+
+unsigned int w5100::getStatus(void)
+{
+	return SPI_Read(S0_SR);
+ 8c4:	63 e0       	ldi	r22, 0x03	; 3
+ 8c6:	74 e0       	ldi	r23, 0x04	; 4
+ 8c8:	0e 94 d1 01 	call	0x3a2	; 0x3a2 <_ZN5w51008SPI_ReadEj>
+ 8cc:	90 e0       	ldi	r25, 0x00	; 0
+ 8ce:	08 95       	ret
+
+000008d0 <strcat_P>:
+ 8d0:	fb 01       	movw	r30, r22
+ 8d2:	dc 01       	movw	r26, r24
+ 8d4:	0d 90       	ld	r0, X+
+ 8d6:	00 20       	and	r0, r0
+ 8d8:	e9 f7       	brne	.-6      	; 0x8d4 <strcat_P+0x4>
+ 8da:	11 97       	sbiw	r26, 0x01	; 1
+ 8dc:	05 90       	lpm	r0, Z+
+ 8de:	0d 92       	st	X+, r0
+ 8e0:	00 20       	and	r0, r0
+ 8e2:	e1 f7       	brne	.-8      	; 0x8dc <strcat_P+0xc>
+ 8e4:	08 95       	ret
+
+000008e6 <strcpy_P>:
+ 8e6:	fb 01       	movw	r30, r22
+ 8e8:	dc 01       	movw	r26, r24
+ 8ea:	05 90       	lpm	r0, Z+
+ 8ec:	0d 92       	st	X+, r0
+ 8ee:	00 20       	and	r0, r0
+ 8f0:	e1 f7       	brne	.-8      	; 0x8ea <strcpy_P+0x4>
+ 8f2:	08 95       	ret
+
+000008f4 <_exit>:
+ 8f4:	f8 94       	cli
+
+000008f6 <__stop_program>:
+ 8f6:	ff cf       	rjmp	.-2      	; 0x8f6 <__stop_program>

@@ -91,17 +91,18 @@ extern "C"
 class w5100{
 	// Define W5100 Socket Register and Variables Used
 	uint8_t sockreg;
+	unsigned char mac_addr[6]	= {0x00,0x16,0x36,0xDE,0x58,0xF6};
+	unsigned char ip_addr[4]		= {10,16,18,33};
+	unsigned char sub_mask[4]	= {255,255,255,0};
+	unsigned char gtw_addr[4]	= {10,16,18,250};
 	private:
 		void SPI_Write(unsigned int addr, unsigned char data);
 		unsigned char SPI_Read(unsigned int addr);
 		
 	public:
 		w5100();
+		w5100(char ip[]);
 		void init(void);
-	
-			
-		
-		
 		
 		unsigned char socket(unsigned char sock, unsigned char eth_protocol, unsigned int tcp_port);//opens a socket
 		unsigned char listen(unsigned char sock);			//listen for a connection from a client or server
@@ -110,6 +111,7 @@ class w5100{
 		unsigned int send(unsigned char sock , const unsigned char * buf, unsigned int buflen);
 		unsigned int recv(unsigned char sock,unsigned char * buf, unsigned int buflen);
 		unsigned int recv_size(void);
+		unsigned int  getStatus(void);
 	};
 
 

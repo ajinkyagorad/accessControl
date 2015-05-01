@@ -11,14 +11,15 @@ w5100::w5100()
 {
 	
 }
-
+w5100::w5100(char ip[])
+{
+	for(int i=0;i<4;i++)
+		ip_addr[i]=ip[i];
+}
 void w5100::init(void)
 {
 	// Ethernet Setup
-	unsigned char mac_addr[] = {0x00,0x16,0x36,0xDE,0x58,0xF6};
-	unsigned char ip_addr[] = {192,168,2,10};
-	unsigned char sub_mask[] = {255,255,255,0};
-	unsigned char gtw_addr[] = {192,168,2,1};
+	
 
 	// Setting the Wiznet W5100 Mode Register: 0x0000
 	SPI_Write(MR,0x80);            // MR = 0b10000000;
@@ -55,7 +56,7 @@ void w5100::init(void)
 }
 unsigned char w5100::SPI_Read(unsigned int addr)
 {
-	 // Activate the CS pin
+	 // Activate the CS pin			//set it low
 	 SPI_PORT &= ~(1<<SPI_CS);
 
 	 // Start Wiznet W5100 Read OpCode transmission
@@ -82,7 +83,7 @@ unsigned char w5100::SPI_Read(unsigned int addr)
 	 // Wait for transmission complete
 	 while(!(SPSR & (1<<SPIF)));
 
-	 // CS pin is not active
+	 // deactivate CS pin //make it high
 	 SPI_PORT |= (1<<SPI_CS);
 
 	 return(SPDR);
@@ -142,7 +143,7 @@ void w5100::disconnect(unsigned char sock)
 	// Wait for Disconecting Process
 	while(SPI_Read(S0_CR));
 }
-
+//returns 1 if successful else 0
 unsigned char w5100::socket(unsigned char sock, unsigned char eth_protocol, unsigned int tcp_port)
 {
 	 uint8_t retval=0;
@@ -173,7 +174,7 @@ unsigned char w5100::socket(unsigned char sock, unsigned char eth_protocol, unsi
 
 	 return retval;
 }
-
+// return 1 if successful else 0
 unsigned  char w5100::listen(unsigned char sock)
 {
 	 uint8_t retval = 0;
@@ -305,3 +306,7 @@ unsigned int w5100::recv_size(void)
 	 return ((SPI_Read(S0_RX_RSR) & 0x00FF) << 8 ) + SPI_Read(S0_RX_RSR + 1);
 }
 
+unsigned int w5100::getStatus(void)
+{
+	return SPI_Read(S0_SR);
+}
