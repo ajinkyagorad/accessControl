@@ -1,4 +1,5 @@
-# accessControl
+# AccessControl
+##Centralised Attendance System
 developing Biometric, RFID tag, Magnetic Swipe access control
 
 It uses visual micro plugin with atmel studio + arduino (1.6.1) (with visual micro)
