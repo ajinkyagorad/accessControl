@@ -7,5 +7,5 @@ currently the server is created using wamp and on port 8080.
 php script is used in the backend.
 ...
 ###Prototype Videos
-![Vid1](https://www.youtube.com/watch?v=cUeR4WV6N3Y)
-![Vid2](https://www.youtube.com/watch?v=yT9sfJU_AW4)
+!(https://www.youtube.com/watch?v=cUeR4WV6N3Y)
+!(https://www.youtube.com/watch?v=yT9sfJU_AW4)
